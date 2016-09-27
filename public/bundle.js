@@ -13,7 +13,7 @@ var _App = require('./src/App.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_App.App, null), document.getElementById('example')); // main.js
+_reactDom2.default.render(_react2.default.createElement(_App.App, null), document.getElementById('main')); // main.js
 
 
 },{"./src/App.js":426,"react":421,"react-dom":258}],2:[function(require,module,exports){
@@ -38654,7 +38654,7 @@ var App = exports.App = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 { href: '#' },
-                'React-Bootstrap'
+                'Production Analyzing'
               )
             )
           ),
@@ -38664,36 +38664,36 @@ var App = exports.App = function (_React$Component) {
             _react2.default.createElement(
               _reactBootstrap.NavItem,
               { eventKey: 1, href: '#' },
-              'Link'
+              'Project Intro'
             ),
             _react2.default.createElement(
               _reactBootstrap.NavItem,
               { eventKey: 2, href: '#' },
-              'Link'
+              'Machine'
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.NavItem,
+              { eventKey: 3, href: '#' },
+              'Statistics'
             ),
             _react2.default.createElement(
               _reactBootstrap.NavDropdown,
-              { eventKey: 3, title: 'Dropdown', id: 'basic-nav-dropdown' },
+              { eventKey: 4, title: 'More', id: 'basic-nav-dropdown' },
               _react2.default.createElement(
                 _reactBootstrap.MenuItem,
-                { eventKey: 3.1 },
-                'Action'
+                { eventKey: 4.1 },
+                'Team'
               ),
               _react2.default.createElement(
                 _reactBootstrap.MenuItem,
-                { eventKey: 3.2 },
-                'Another action'
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 3.3 },
-                'Something else here'
+                { eventKey: 4.2 },
+                'Technologies'
               ),
               _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
               _react2.default.createElement(
                 _reactBootstrap.MenuItem,
-                { eventKey: 3.3 },
-                'Separated link'
+                { eventKey: 3.3, href: 'https://github.com/4lexBaum/projekt-5s-dhbw' },
+                'Github link'
               )
             )
           )
@@ -38704,17 +38704,17 @@ var App = exports.App = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.NavItem,
             { eventKey: '1', href: '/home' },
-            'NavItem 1 content'
+            'Live Data'
           ),
           _react2.default.createElement(
             _reactBootstrap.NavItem,
             { eventKey: '2', title: 'Item' },
-            'NavItem 2 content'
+            'Analyses'
           ),
           _react2.default.createElement(
             _reactBootstrap.NavItem,
             { eventKey: '3', disabled: true },
-            'NavItem 3 content'
+            'Functions'
           )
         ),
         _react2.default.createElement(
@@ -38729,6 +38729,31 @@ var App = exports.App = function (_React$Component) {
           _reactBootstrap.Button,
           { bsStyle: 'primary' },
           'Primary'
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { bsStyle: 'success' },
+          'Success'
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { bsStyle: 'info' },
+          'Info'
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { bsStyle: 'warning' },
+          'Warning'
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { bsStyle: 'danger' },
+          'Danger'
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { bsStyle: 'link' },
+          'Link'
         )
       );
     }

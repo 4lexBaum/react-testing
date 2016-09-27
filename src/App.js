@@ -30,29 +30,34 @@ export class App extends React.Component {
                 <Navbar>
                  <Navbar.Header>
                    <Navbar.Brand>
-                     <a href="#">React-Bootstrap</a>
+                     <a href="#">Production Analyzing</a>
                    </Navbar.Brand>
                  </Navbar.Header>
                  <Nav>
-                   <NavItem eventKey={1} href="#">Link</NavItem>
-                   <NavItem eventKey={2} href="#">Link</NavItem>
-                   <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                     <MenuItem eventKey={3.1}>Action</MenuItem>
-                     <MenuItem eventKey={3.2}>Another action</MenuItem>
-                     <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                  <NavItem eventKey={1} href="#">Project Intro</NavItem>
+                   <NavItem eventKey={2} href="#">Machine</NavItem>
+                   <NavItem eventKey={3} href="#">Statistics</NavItem>
+                   <NavDropdown eventKey={4} title="More" id="basic-nav-dropdown">
+                     <MenuItem eventKey={4.1}>Team</MenuItem>
+                     <MenuItem eventKey={4.2}>Technologies</MenuItem>
                      <MenuItem divider />
-                     <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                     <MenuItem eventKey={3.3} href="https://github.com/4lexBaum/projekt-5s-dhbw">Github link</MenuItem>
                    </NavDropdown>
                  </Nav>
                 </Navbar>
                 <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
-                  <NavItem eventKey="1" href="/home">NavItem 1 content</NavItem>
-                  <NavItem eventKey="2" title="Item">NavItem 2 content</NavItem>
-                  <NavItem eventKey="3" disabled>NavItem 3 content</NavItem>
+                  <NavItem eventKey="1" href="/home">Live Data</NavItem>
+                  <NavItem eventKey="2" title="Item">Analyses</NavItem>
+                  <NavItem eventKey="3" disabled>Functions</NavItem>
                 </Nav>
                 <h1>Product Listing</h1>
                 { this._products.map(function(p,i) { return <Product title={p.title} price={p.price} nr={i} /> }) }
                 <Button bsStyle="primary">Primary</Button>
+                <Button bsStyle="success">Success</Button>
+                <Button bsStyle="info">Info</Button>
+                <Button bsStyle="warning">Warning</Button>
+                <Button bsStyle="danger">Danger</Button>
+                <Button bsStyle="link">Link</Button>
               </div>
             )
         }
