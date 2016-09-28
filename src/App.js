@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Button } from 'react-bootstrap';
-
 import { Product } from './Components/Product.js';
 
 import { Chart } from './Components/Chart.js';

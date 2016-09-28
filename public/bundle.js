@@ -56528,8 +56528,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactBootstrap = require('react-bootstrap');
-
 var _Product = require('./Components/Product.js');
 
 var _Chart = require('./Components/Chart.js');
@@ -56580,7 +56578,7 @@ var App = exports.App = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"./Components/Chart.js":430,"./Components/Header.js":431,"./Components/Product.js":432,"react":424,"react-bootstrap":249}],430:[function(require,module,exports){
+},{"./Components/Chart.js":430,"./Components/Header.js":431,"./Components/Product.js":432,"react":424}],430:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -56598,6 +56596,8 @@ var _reactC3js = require('react-c3js');
 
 var _reactC3js2 = _interopRequireDefault(_reactC3js);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56614,16 +56614,42 @@ var Chart = exports.Chart = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).call(this, props));
 
-    _this._data = {
-      columns: [['data1', 30, 200, 100, 400, 150, 250], ['data2', 50, 20, 10, 40, 15, 25]]
+    _this.state = { data: { columns: [['data1', 30, 100]] } };
+    _this._axis = {
+      y: {
+        max: 100,
+        min: 0
+      }
     };
+    // Range includes padding, set 0 if no padding needed
+    // padding: {top:0, bottom:0}
     return _this;
   }
 
   _createClass(Chart, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      console.log(socket);
+      var that = this;
+      socket.on('test', function (msg) {
+        var newArray = that.state.data.columns[0];
+        newArray.push(msg);
+        that.setState({ data: { columns: [[newArray]] }, axis: that._axis });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_reactC3js2.default, { data: this._data });
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _reactBootstrap.Button,
+          { onClick: this.handleClick.bind(this) },
+          'Update'
+        ),
+        _react2.default.createElement(_reactC3js2.default, { data: this.state.data, axis: this._axis })
+      );
     }
   }]);
 
@@ -56631,7 +56657,7 @@ var Chart = exports.Chart = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":424,"react-c3js":260}],431:[function(require,module,exports){
+},{"react":424,"react-bootstrap":249,"react-c3js":260}],431:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
