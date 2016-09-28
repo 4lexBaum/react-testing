@@ -56534,6 +56534,8 @@ var _Product = require('./Components/Product.js');
 
 var _Chart = require('./Components/Chart.js');
 
+var _Header = require('./Components/Header.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56555,95 +56557,12 @@ var App = exports.App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'handleSelect',
-    value: function handleSelect(selectedKey) {
-      alert('selected ' + selectedKey);
-    }
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { style: { padding: '20px' } },
-        _react2.default.createElement(
-          _reactBootstrap.Navbar,
-          null,
-          _react2.default.createElement(
-            _reactBootstrap.Navbar.Header,
-            null,
-            _react2.default.createElement(
-              _reactBootstrap.Navbar.Brand,
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '' },
-                'Production Analyzing'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Nav,
-            { stacked: true, activeKey: 1, onSelect: this.handleSelect },
-            _react2.default.createElement(
-              _reactBootstrap.NavItem,
-              { eventKey: 1, href: '#' },
-              'Project Intro'
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.NavItem,
-              { eventKey: 2, href: '#' },
-              'Machine'
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.NavItem,
-              { eventKey: 3, href: '#' },
-              'Statistics'
-            )
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Nav,
-            { pullRight: true },
-            _react2.default.createElement(
-              _reactBootstrap.NavDropdown,
-              { eventKey: 4, title: 'More', id: 'basic-nav-dropdown' },
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 4.1 },
-                'Team'
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 4.2 },
-                'Technologies'
-              ),
-              _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 4.3, href: 'https://github.com/4lexBaum/projekt-5s-dhbw' },
-                'GitHub'
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Nav,
-          { bsStyle: 'tabs', activeKey: '1', onSelect: this.handleSelect },
-          _react2.default.createElement(
-            _reactBootstrap.NavItem,
-            { eventKey: '1', href: '/home' },
-            'Live Data'
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.NavItem,
-            { eventKey: '2', title: 'Item' },
-            'Analyses'
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.NavItem,
-            { eventKey: '3', disabled: true },
-            'Functions'
-          )
-        ),
+        _react2.default.createElement(_Header.Header, null),
         _react2.default.createElement(_Chart.Chart, null),
         _react2.default.createElement(
           'h1',
@@ -56652,37 +56571,7 @@ var App = exports.App = function (_React$Component) {
         ),
         this._products.map(function (p, i) {
           return _react2.default.createElement(_Product.Product, { title: p.title, price: p.price, nr: i });
-        }),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'primary' },
-          'Primary'
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'success' },
-          'Success'
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'info' },
-          'Info'
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'warning' },
-          'Warning'
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'danger' },
-          'Danger'
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          { bsStyle: 'link' },
-          'Link'
-        )
+        })
       );
     }
   }]);
@@ -56691,7 +56580,7 @@ var App = exports.App = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"./Components/Chart.js":430,"./Components/Product.js":431,"react":424,"react-bootstrap":249}],430:[function(require,module,exports){
+},{"./Components/Chart.js":430,"./Components/Header.js":431,"./Components/Product.js":432,"react":424,"react-bootstrap":249}],430:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -56743,6 +56632,114 @@ var Chart = exports.Chart = function (_React$Component) {
 
 
 },{"react":424,"react-c3js":260}],431:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Header = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = require('react-bootstrap');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = exports.Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+  }
+
+  _createClass(Header, [{
+    key: 'handleSelect',
+    value: function handleSelect(selectedKey) {
+      alert('selected ' + selectedKey);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactBootstrap.Navbar,
+        null,
+        _react2.default.createElement(
+          _reactBootstrap.Navbar.Header,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Navbar.Brand,
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '' },
+              'Production Analyzing'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Nav,
+          { pullLeft: true, stacked: true, onSelect: this.handleSelect },
+          _react2.default.createElement(
+            _reactBootstrap.NavItem,
+            { eventKey: 1, href: '#' },
+            'Project Intro'
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.NavItem,
+            { eventKey: 2, href: '#' },
+            'Machine'
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.NavItem,
+            { eventKey: 3, href: '#' },
+            'Statistics'
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Nav,
+          { pullRight: true },
+          _react2.default.createElement(
+            _reactBootstrap.NavDropdown,
+            { eventKey: 4, title: 'More', id: 'basic-nav-dropdown' },
+            _react2.default.createElement(
+              _reactBootstrap.MenuItem,
+              { eventKey: 4.1 },
+              'Team'
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.MenuItem,
+              { eventKey: 4.2 },
+              'Technologies'
+            ),
+            _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
+            _react2.default.createElement(
+              _reactBootstrap.MenuItem,
+              { eventKey: 4.3, href: 'https://github.com/4lexBaum/projekt-5s-dhbw' },
+              'GitHub'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Header;
+}(_react2.default.Component);
+
+
+},{"react":424,"react-bootstrap":249}],432:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
