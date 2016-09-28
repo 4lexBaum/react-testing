@@ -16,7 +16,7 @@ io.on('connection', function(socket){
   setInterval(function(){
     var random = Math.round(Math.random()*100);
     socket.broadcast.emit("test", random);
-  }, 3000);
+  }, 1000);
 });
 
 http.listen(3001, function(){
