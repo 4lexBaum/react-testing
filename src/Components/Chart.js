@@ -26,8 +26,9 @@ export class Chart extends React.Component {
           socket.on('test', function(msg){
             var newArray = that.state.data.columns[0];
             newArray.push(msg);
+            console.log(newArray);
             that.setState({data: { columns: [
-              [newArray]
+              newArray
             ]}, axis: that._axis})
           });
         }

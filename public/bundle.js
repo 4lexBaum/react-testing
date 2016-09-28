@@ -56632,9 +56632,13 @@ var Chart = exports.Chart = function (_React$Component) {
       console.log(socket);
       var that = this;
       socket.on('test', function (msg) {
+        //var testArray = ['data1', 30, 100, 50];
         var newArray = that.state.data.columns[0];
         newArray.push(msg);
-        that.setState({ data: { columns: [[newArray]] }, axis: that._axis });
+        console.log(newArray);
+        that.setState({ data: { columns: [
+            //['data1', 30, 100, 50]
+            newArray] }, axis: that._axis });
       });
     }
   }, {
