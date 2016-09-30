@@ -56388,6 +56388,8 @@ var _ChartContainer = require('./Components/ChartContainer.js');
 
 var _Header = require('./Components/Header.js');
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56408,23 +56410,72 @@ var App = exports.App = function (_React$Component) {
     return _this;
   }
 
+  // const gridInstance = (
+  //   <Grid>
+  //     <Row className="show-grid">
+  //       <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
+  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+  //     </Row>
+  //
+  //     <Row className="show-grid">
+  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+  //       <Col xsHidden md={4}><code>&lt;{'Col xsHidden md={4}'} /&gt;</code></Col>
+  //     </Row>
+  //
+  //     <Row className="show-grid">
+  //       <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
+  //     </Row>
+  //
+  //     <Row className="show-grid">
+  //       <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
+  //       <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
+  //     </Row>
+  //   </Grid>
+  // );
+
+
+  // ReactDOM.render(, mountNode);
+  // <div style={{padding: '20px'}}>
+  // </div>
+
   _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { style: { padding: '20px' } },
-        _react2.default.createElement(_Header.Header, null),
-        _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'test-chart' }),
-        _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'gauge-chart' }),
+        _reactBootstrap.Grid,
+        null,
         _react2.default.createElement(
-          'h1',
-          null,
-          'Product Listing'
+          _reactBootstrap.Row,
+          { className: 'show-grid' },
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 16 },
+            _react2.default.createElement(_Header.Header, null)
+          )
         ),
-        this._products.map(function (p, i) {
-          return _react2.default.createElement(_Product.Product, { title: p.title, price: p.price, nr: i });
-        })
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 6 },
+            _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'test-chart' }),
+            _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'gauge-chart' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 6 },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Product Listing'
+            ),
+            this._products.map(function (p, i) {
+              return _react2.default.createElement(_Product.Product, { title: p.title, price: p.price, nr: i });
+            })
+          )
+        )
       );
     }
   }]);
@@ -56433,7 +56484,7 @@ var App = exports.App = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"./Components/ChartContainer.js":429,"./Components/Header.js":430,"./Components/Product.js":431,"react":423}],429:[function(require,module,exports){
+},{"./Components/ChartContainer.js":429,"./Components/Header.js":430,"./Components/Product.js":431,"react":423,"react-bootstrap":249}],429:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
