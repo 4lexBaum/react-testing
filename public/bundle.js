@@ -20,14 +20,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // main.js
 var testChart = require('./src/testChart.js');
 var gaugeChart = require('./src/gaugeChart.js');
+var barChart = require('./src/barChart.js');
 
 _reactDom2.default.render(_react2.default.createElement(_App.App, null), document.getElementById('main'));
 
 testChart.createChart();
 gaugeChart.createChart();
+barChart.createChart();
 
 
-},{"./src/App.js":428,"./src/gaugeChart.js":432,"./src/testChart.js":433,"c3":16,"react":423,"react-dom":260}],2:[function(require,module,exports){
+},{"./src/App.js":428,"./src/barChart.js":432,"./src/gaugeChart.js":433,"./src/testChart.js":434,"c3":16,"react":423,"react-dom":260}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":18}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -56417,6 +56419,7 @@ var App = exports.App = function (_React$Component) {
         _react2.default.createElement(_Header.Header, null),
         _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'test-chart' }),
         _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'gauge-chart' }),
+        _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'bar-chart' }),
         _react2.default.createElement(
           'h1',
           null,
@@ -56658,6 +56661,80 @@ var _c2 = _interopRequireDefault(_c);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var chart, data;
+var cnt = 1;
+var length = 0;
+
+module.exports = {
+    createChart: function createChart() {
+        chart = _c2.default.generate({
+            bindto: '#bar-chart',
+            data: {
+                x: 'x',
+                columns: [['x', new Date()], ['Quality', 80]],
+                type: 'bar'
+            },
+            bar: {
+                width: 20
+            },
+            axis: {
+                y: {
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 100,
+                    min: 0
+                },
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        culling: {
+                            //max: 0
+                        },
+                        format: '%H:%M:%S'
+                    }
+                }
+            },
+            transition: {
+                duration: 0
+            },
+            grid: {
+                y: {
+                    show: true,
+                    lines: [{
+                        value: 70,
+                        class: 'minmax',
+                        text: 'minimum requirement'
+                    }]
+                }
+            }
+        });
+        socket.on('bar', function (msg) {
+            cnt++;
+            if (cnt > 50) {
+                length = 1;
+            }
+
+            chart.flow({
+                columns: [['x', new Date()], ['Quality', msg]],
+                length: length,
+                duration: 500
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],433:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var chart, data;
 
 module.exports = {
     createChart: function createChart() {
@@ -56667,11 +56744,21 @@ module.exports = {
                 columns: [['data1', 50]],
                 type: 'gauge'
             },
+            gauge: {
+                label: {
+                    format: function format(value, ratio) {
+                        return value + "°C";
+                    }
+                },
+                min: 100,
+                max: 400
+            },
             color: {
-                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                pattern: ['#1e90ff', '#00bfff', '#60B044', '#F6C600', '#FF0000'],
                 threshold: {
-                    unit: '°C', // percentage is default
-                    values: [30, 60, 90, 100]
+                    unit: 'value',
+                    max: 400,
+                    values: [150, 200, 250, 300, 350]
                 }
             }
         });
@@ -56684,7 +56771,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],433:[function(require,module,exports){
+},{"c3":16}],434:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -56703,19 +56790,23 @@ module.exports = {
             bindto: '#test-chart',
             data: {
                 x: 'x',
-                columns: [['x', new Date()], ['Temperatur Bohrer', 50]],
+                columns: [['x', new Date()], ['Temperatur Bohrer', 225]],
                 type: 'spline'
             },
             axis: {
                 y: {
-                    max: 100,
-                    min: 0
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 350,
+                    min: 100
                 },
                 x: {
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 0
+                            //max: 0
                         },
                         format: '%H:%M:%S'
                     }
@@ -56726,14 +56817,22 @@ module.exports = {
             },
             grid: {
                 y: {
-                    show: true
+                    show: true,
+                    lines: [{
+                        value: 200,
+                        class: 'minmax'
+                    }, {
+                        value: 250,
+                        text: 'ideal °C range',
+                        class: 'minmax'
+                    }]
                 }
             }
         });
         socket.emit('status', 'ready');
         socket.on('test', function (msg) {
             cnt++;
-            if (cnt > 15) {
+            if (cnt > 30) {
                 length = 1;
             }
 

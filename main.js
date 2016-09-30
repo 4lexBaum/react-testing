@@ -8,6 +8,7 @@ import c3 from 'c3';
 
 var testChart = require('./src/testChart.js');
 var gaugeChart = require('./src/gaugeChart.js');
+var barChart = require('./src/barChart.js');
 
 ReactDOM.render(
     <App /> ,
@@ -16,3 +17,4 @@ ReactDOM.render(
 
 testChart.createChart();
 gaugeChart.createChart();
+barChart.createChart();

@@ -23,6 +23,7 @@ export class App extends React.Component {
                 <Header></Header>
                 <ChartContainer containerId="test-chart"></ChartContainer>
                 <ChartContainer containerId="gauge-chart"></ChartContainer>
+                <ChartContainer containerId="bar-chart"></ChartContainer>
                 <h1>Product Listing</h1>
                 { this._products.map(function(p,i) { return <Product title={p.title} price={p.price} nr={i} /> }) }
               </div>

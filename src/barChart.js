@@ -9,14 +9,17 @@ var length = 0;
 module.exports = {
     createChart: function () {
         chart = c3.generate({
-            bindto: '#test-chart',
+            bindto: '#bar-chart',
             data: {
                 x: 'x',
                 columns: [
                     ['x', new Date()],
-                    ['Temperatur Bohrer', 225]
+                    ['Quality', 80]
                 ],
-                type: 'spline'
+                type: 'bar'
+            },
+            bar: {
+                width: 20
             },
             axis: {
                 y: {
@@ -24,8 +27,8 @@ module.exports = {
                         top: 0,
                         bottom: 0
                     },
-                    max: 350,
-                    min: 100
+                    max: 100,
+                    min: 0
                 },
                 x: {
                     type: 'timeseries',
@@ -44,27 +47,23 @@ module.exports = {
                 y: {
                     show: true,
                     lines: [{
-                        value: 200,
-                        class: 'minmax'
-                    }, {
-                        value: 250,
-                        text: 'ideal °C range',
-                        class: 'minmax'
+                        value: 70,
+                        class: 'minmax',
+                        text: 'minimum requirement'
                     }]
                 }
             }
         });
-        socket.emit('status', 'ready');
-        socket.on('test', function (msg) {
+        socket.on('bar', function (msg) {
             cnt++;
-            if (cnt > 30) {
+            if (cnt > 50) {
                 length = 1;
             }
 
             chart.flow({
                 columns: [
                     ['x', new Date()],
-                    ['Temperatur Bohrer', msg]
+                    ['Quality', msg]
                 ],
                 length: length,
                 duration: 500
