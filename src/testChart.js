@@ -57,7 +57,7 @@ module.exports = {
         socket.emit('status', 'ready');
         socket.on('test', function (msg) {
             cnt++;
-            if (cnt > 30) {
+            if (cnt > 20) {
                 length = 1;
             }
 

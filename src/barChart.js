@@ -56,7 +56,7 @@ module.exports = {
         });
         socket.on('bar', function (msg) {
             cnt++;
-            if (cnt > 50) {
+            if (cnt > 30) {
                 length = 1;
             }
 

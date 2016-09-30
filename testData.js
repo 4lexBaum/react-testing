@@ -13,23 +13,36 @@ io.on('connection', function (socket) {
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
-    setInterval(function(){
-      var randomBar = Math.floor(Math.random()*30)+70;
-      socket.emit("bar", randomBar);
-    },1000);
+    setInterval(function () {
+        var randomBar = Math.floor(Math.random() * 30) + 70;
+        socket.emit("bar", randomBar);
+    }, 1000);
+    setInterval(function () {
+        var w1 = Math.floor(Math.random() * 100);
+        var w2 = Math.floor(Math.random() * 100);
+        var w3 = Math.floor(Math.random() * 100);
+        var w4 = Math.floor(Math.random() * 100);
+        socket.emit("pie", {
+            'w1': w1,
+            'w2': w2,
+            'w3': w3,
+            'w4': w4
+        });
+    }, 3000);
     socket.on('status', function (msg) {
         if (msg === 'ready') {
             console.log("streaming started");
             var start, range;
             var cnt = 1;
+
             function send() {
-              /*  if((cnt % 10) === 0){
-                  start = 100;
-                  range = 400;
-                } else{
-                  start = 200;
-                  range = 50;
-                }*/
+                /*  if((cnt % 10) === 0){
+                    start = 100;
+                    range = 400;
+                  } else{
+                    start = 200;
+                    range = 50;
+                  }*/
                 var random = Math.floor(Math.random() * 250) + 100;
                 socket.emit("test", random);
                 socket.emit("gauge", random);

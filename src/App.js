@@ -62,12 +62,17 @@ export class App extends React.Component {
                   <Row>
                     <Col md={6}>
                       <ChartContainer containerId="test-chart"></ChartContainer>
+                    </Col>
+                    <Col md={6}>
                       <ChartContainer containerId="gauge-chart"></ChartContainer>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={6}>
                       <ChartContainer containerId="bar-chart"></ChartContainer>
                     </Col>
                     <Col md={6}>
-                      <h1>Product Listing</h1>
-                      { this._products.map(function(p,i) { return <Product title={p.title} price={p.price} nr={i} /> }) }
+                      <ChartContainer containerId="pie-chart"></ChartContainer>
                     </Col>
                   </Row>
 
