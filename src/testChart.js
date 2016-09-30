@@ -3,15 +3,18 @@
 import c3 from 'c3';
 
 var chart, data;
+var cnt = 1;
+var length = 0;
 
 module.exports = {
     createChart: function () {
-        data = ['Temperatur Bohrer', 80, 92, 80, 44, 95, 89, 80, 92, 80, 44]
         chart = c3.generate({
             bindto: '#test-chart',
             data: {
+                x: 'x',
                 columns: [
-                    data
+                    ['x', new Date()],
+                    ['Temperatur Bohrer', 50]
                 ],
                 type: 'spline'
             },
@@ -21,23 +24,37 @@ module.exports = {
                     min: 0
                 },
                 x: {
-                  tick: {
-                    culling: 0
-                  }
+                    type: 'timeseries',
+                    tick: {
+                        culling: {
+                            max: 0
+                        },
+                        format: '%H:%M:%S'
+                    }
                 }
             },
             transition: {
-              duration: 0
+                duration: 0
             },
             grid: {
-              y: {
-                show: true
+                y: {
+                    show: true
+                }
             }
-    }
         });
+        socket.emit('status', 'ready');
         socket.on('test', function (msg) {
+            cnt++;
+            if(cnt>15){
+              length = 1;
+            }
+
             chart.flow({
-                columns: [ ['Temperatur Bohrer', msg] ],
+                columns: [
+                    ['x', new Date()],
+                    ['Temperatur Bohrer', msg]
+                ],
+                length: length,
                 duration: 500
             });
         });
