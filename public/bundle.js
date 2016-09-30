@@ -56464,23 +56464,7 @@ var ChartContainer = exports.ChartContainer = function (_React$Component) {
     return _possibleConstructorReturn(this, (ChartContainer.__proto__ || Object.getPrototypeOf(ChartContainer)).call(this, props));
   }
 
-<<<<<<< HEAD
-  _createClass(Chart, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      console.log(socket);
-      var that = this;
-      socket.on('test', function (msg) {
-        var newArray = that.state.data.columns[0];
-        newArray.push(msg);
-        console.log(newArray);
-        that.setState({ data: { columns: [newArray] }, axis: that._axis });
-      });
-    }
-  }, {
-=======
   _createClass(ChartContainer, [{
->>>>>>> master
     key: 'render',
     value: function render() {
       return _react2.default.createElement('div', { id: this.props.containerId });
