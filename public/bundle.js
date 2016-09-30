@@ -56694,14 +56694,16 @@ var _c2 = _interopRequireDefault(_c);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var chart, data;
+var cnt = 1;
+var length = 0;
 
 module.exports = {
     createChart: function createChart() {
-        data = ['Temperatur Bohrer', 80, 92, 80, 44, 95, 89, 80, 92, 80, 44];
         chart = _c2.default.generate({
             bindto: '#test-chart',
             data: {
-                columns: [data],
+                x: 'x',
+                columns: [['x', new Date()], ['Temperatur Bohrer', 50]],
                 type: 'spline'
             },
             axis: {
@@ -56710,8 +56712,12 @@ module.exports = {
                     min: 0
                 },
                 x: {
+                    type: 'timeseries',
                     tick: {
-                        culling: 0
+                        culling: {
+                            max: 0
+                        },
+                        format: '%H:%M:%S'
                     }
                 }
             },
@@ -56724,9 +56730,16 @@ module.exports = {
                 }
             }
         });
+        socket.emit('status', 'ready');
         socket.on('test', function (msg) {
+            cnt++;
+            if (cnt > 15) {
+                length = 1;
+            }
+
             chart.flow({
-                columns: [['Temperatur Bohrer', msg]],
+                columns: [['x', new Date()], ['Temperatur Bohrer', msg]],
+                length: length,
                 duration: 500
             });
         });

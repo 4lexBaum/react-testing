@@ -13,11 +13,18 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
-  setInterval(function(){
-    var random = Math.floor(Math.random()*80)+10;
-    socket.broadcast.emit("test", random);
-    socket.broadcast.emit("gauge", random);
-  }, 1000);
+  socket.on('status', function(msg){
+    if(msg === 'ready'){
+      console.log("streaming started");
+      setInterval(function(){
+        var random = Math.floor(Math.random()*80)+10;
+        socket.emit("test", random);
+        socket.emit("gauge", random);
+      }, 1000);
+    }
+  });
+
+
   /*setInterval(function(){
     var random = Math.floor(Math.random()*80)+20;
     socket.broadcast.emit("gauge", random);
