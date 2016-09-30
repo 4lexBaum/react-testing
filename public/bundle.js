@@ -56444,7 +56444,7 @@ var App = exports.App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         _reactBootstrap.Grid,
-        null,
+        { fluid: 'true' },
         _react2.default.createElement(
           _reactBootstrap.Row,
           { className: 'show-grid' },
