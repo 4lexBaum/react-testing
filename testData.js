@@ -14,9 +14,14 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
   setInterval(function(){
-    var random = Math.round(Math.random()*100);
+    var random = Math.floor(Math.random()*80)+10;
     socket.broadcast.emit("test", random);
+    socket.broadcast.emit("gauge", random);
   }, 1000);
+  /*setInterval(function(){
+    var random = Math.floor(Math.random()*80)+20;
+    socket.broadcast.emit("gauge", random);
+  }, 2000);*/
 });
 
 http.listen(3001, function(){
