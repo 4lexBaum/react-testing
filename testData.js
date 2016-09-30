@@ -13,15 +13,28 @@ io.on('connection', function (socket) {
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
+    setInterval(function(){
+      var randomBar = Math.floor(Math.random()*30)+70;
+      socket.emit("bar", randomBar);
+    },1000);
     socket.on('status', function (msg) {
         if (msg === 'ready') {
             console.log("streaming started");
-
+            var start, range;
+            var cnt = 1;
             function send() {
-                var random = Math.floor(Math.random() * 80) + 10;
+              /*  if((cnt % 10) === 0){
+                  start = 100;
+                  range = 400;
+                } else{
+                  start = 200;
+                  range = 50;
+                }*/
+                var random = Math.floor(Math.random() * 250) + 100;
                 socket.emit("test", random);
                 socket.emit("gauge", random);
                 var timeout = Math.floor(Math.random() * 4000) + 1000;
+                cnt++;
                 setTimeout(function () {
                     send();
                 }, timeout)

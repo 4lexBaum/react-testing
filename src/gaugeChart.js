@@ -14,11 +14,21 @@ module.exports = {
                 ],
                 type: 'gauge'
             },
+            gauge: {
+                label: {
+                    format: function (value, ratio) {
+                        return value + "°C";
+                    },
+                },
+                min: 100,
+                max: 400
+            },
             color: {
-                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                pattern: ['#1e90ff', '#00bfff', '#60B044', '#F6C600', '#FF0000'],
                 threshold: {
-                    unit: '°C', // percentage is default
-                    values: [30, 60, 90, 100]
+                    unit: 'value',
+                    max: 400,
+                    values: [150, 200, 250, 300, 350]
                 }
             }
         });

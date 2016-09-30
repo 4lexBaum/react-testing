@@ -63,6 +63,7 @@ export class App extends React.Component {
                     <Col md={6}>
                       <ChartContainer containerId="test-chart"></ChartContainer>
                       <ChartContainer containerId="gauge-chart"></ChartContainer>
+                      <ChartContainer containerId="bar-chart"></ChartContainer>
                     </Col>
                     <Col md={6}>
                       <h1>Product Listing</h1>
