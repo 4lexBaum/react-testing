@@ -53,7 +53,7 @@ export class App extends React.Component {
 
         render() {
             return (
-              <Grid>
+              <Grid fluid='true'>
                   <Row className="show-grid">
                     <Col md={16}>
                       <Header></Header>
