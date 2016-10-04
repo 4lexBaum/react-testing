@@ -63,7 +63,7 @@ export class App extends React.Component {
                     <Col md={6}>
                       <ChartContainer containerId="test-chart"></ChartContainer>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} id="gauge">
                       <ChartContainer containerId="gauge-chart"></ChartContainer>
                     </Col>
                   </Row>
@@ -71,7 +71,7 @@ export class App extends React.Component {
                     <Col md={6}>
                       <ChartContainer containerId="bar-chart"></ChartContainer>
                     </Col>
-                    <Col md={6}>
+                    <Col md={ 6}>
                       <ChartContainer containerId="pie-chart"></ChartContainer>
                     </Col>
                   </Row>
