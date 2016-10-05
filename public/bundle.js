@@ -56806,7 +56806,7 @@ var Tile = exports.Tile = function (_React$Component) {
       var random = Math.floor(Math.random() * 250) + 100;
       var container = this.props.containerId;
       alert("bin geklickt worden: " + container);
-      this.state = { value: random };
+      this.setState({ value: random });
       //nachrendern funktioniert noch nicht, aber der state wird geändert
       alert("state auf: " + random + " geändert");
     }
