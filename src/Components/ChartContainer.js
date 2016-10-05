@@ -6,9 +6,14 @@ export class ChartContainer extends React.Component {
             super(props);
         }
 
+        handleClick(){
+          var container = this.props.containerId;
+          alert("bin geklickt worden: " + container);
+        }
+
         render() {
           return (
-            <div id={this.props.containerId}></div>
+            <div onClick={this.handleClick.bind(this)} id={this.props.containerId}></div>
           )
         }
 }

@@ -3,14 +3,11 @@
 }
 
 .col-md-6 {
-    width: 48% !important;
-    border-radius: 1rem;
-    border-color: lightgrey;
-    border-width: 0.1rem;
+    border-radius: 1.5rem;
+    border-color: #eceaea;
+    border-width: 0.75rem;
     border-style: solid;
-    margin: 0.75rem;
     background-color: white;
-    box-shadow: 3px 3px 3px #888888;
 }
 
 #gauge-chart{
@@ -19,5 +16,60 @@
 }
 
 #gauge{
-  height: 32rem;
+  height: 334px;
+}
+
+
+
+.col-md-3 {
+  border-width: 0.75rem;
+  border-radius: 1.5rem;
+  border-color: #eceaea;
+  border-style: solid;
+  background-color: white;
+}
+
+.icon{
+  width: 7rem;
+  height: 7rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+
+.title{
+  font-family: 'Helvetica';
+  color: gray;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  font-size: 3rem;
+  text-align: left;
+  margin-right: 1rem;
+  margin-bottom: -1rem;
+}
+
+.value{
+  font-family: 'Helvetica';
+  font-size: 5rem;
+  text-align: right;
+  margin-top: -8rem;
+  margin-right: 1rem;
+  margin-bottom: -1rem;
+}
+
+.unit{
+  font-family: 'Helvetica';
+  font-size: 3rem;
+  text-align: right;
+  margin-right: 1rem;
+  margin-bottom: -1rem;
+}
+
+.status{
+  font-family: 'Helvetica';
+  margin-top: 2rem;
+  text-align: right;
+  color: green;
+  font-size: 2rem;
+  margin-right: 1rem;
 }
