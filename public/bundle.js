@@ -20,14 +20,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // main.js
 var testChart = require('./src/testChart.js');
 var gaugeChart = require('./src/gaugeChart.js');
+var barChart = require('./src/barChart.js');
+var pieChart = require('./src/pieChart.js');
 
 _reactDom2.default.render(_react2.default.createElement(_App.App, null), document.getElementById('main'));
 
 testChart.createChart();
 gaugeChart.createChart();
+barChart.createChart();
+pieChart.createChart();
 
 
-},{"./src/App.js":428,"./src/gaugeChart.js":432,"./src/testChart.js":433,"c3":16,"react":423,"react-dom":260}],2:[function(require,module,exports){
+},{"./src/App.js":428,"./src/barChart.js":433,"./src/gaugeChart.js":434,"./src/pieChart.js":435,"./src/testChart.js":436,"c3":16,"react":423,"react-dom":260}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":18}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -56388,6 +56392,8 @@ var _ChartContainer = require('./Components/ChartContainer.js');
 
 var _Header = require('./Components/Header.js');
 
+var _Tile = require('./Components/Tile.js');
+
 var _reactBootstrap = require('react-bootstrap');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -56410,41 +56416,12 @@ var App = exports.App = function (_React$Component) {
     return _this;
   }
 
-  // const gridInstance = (
-  //   <Grid>
-  //     <Row className="show-grid">
-  //       <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
-  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-  //     </Row>
-  //
-  //     <Row className="show-grid">
-  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-  //       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-  //       <Col xsHidden md={4}><code>&lt;{'Col xsHidden md={4}'} /&gt;</code></Col>
-  //     </Row>
-  //
-  //     <Row className="show-grid">
-  //       <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
-  //     </Row>
-  //
-  //     <Row className="show-grid">
-  //       <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
-  //       <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
-  //     </Row>
-  //   </Grid>
-  // );
-
-
-  // ReactDOM.render(, mountNode);
-  // <div style={{padding: '20px'}}>
-  // </div>
-
   _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _reactBootstrap.Grid,
-        { fluid: 'true' },
+        null,
         _react2.default.createElement(
           _reactBootstrap.Row,
           { className: 'show-grid' },
@@ -56459,21 +56436,71 @@ var App = exports.App = function (_React$Component) {
           null,
           _react2.default.createElement(
             _reactBootstrap.Col,
-            { md: 6 },
-            _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'test-chart' }),
-            _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'gauge-chart' })
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile1' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
-            { md: 6 },
-            _react2.default.createElement(
-              'h1',
-              null,
-              'Product Listing'
-            ),
-            this._products.map(function (p, i) {
-              return _react2.default.createElement(_Product.Product, { title: p.title, price: p.price, nr: i });
-            })
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile2' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile3' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile4' })
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile5' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile6' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile7' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile8' })
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile9' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile10' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile11' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile12' })
           )
         )
       );
@@ -56482,10 +56509,31 @@ var App = exports.App = function (_React$Component) {
 
   return App;
 }(_react2.default.Component);
+/*
+<!--
+<Row>
+  <Col md={6}>
+    <ChartContainer containerId="test-chart"></ChartContainer>
+  </Col>
+  <Col md={6} id="gauge">
+    <ChartContainer containerId="gauge-chart"></ChartContainer>
+  </Col>
+</Row>
+<Row>
+  <Col md={6}>
+    <ChartContainer containerId="bar-chart"></ChartContainer>
+  </Col>
+  <Col md={6}>
+    <ChartContainer containerId="pie-chart"></ChartContainer>
+  </Col>
+</Row>
+-->
+
+*/
 
 
-},{"./Components/ChartContainer.js":429,"./Components/Header.js":430,"./Components/Product.js":431,"react":423,"react-bootstrap":249}],429:[function(require,module,exports){
-'use strict';
+},{"./Components/ChartContainer.js":429,"./Components/Header.js":430,"./Components/Product.js":431,"./Components/Tile.js":432,"react":423,"react-bootstrap":249}],429:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -56494,7 +56542,7 @@ exports.ChartContainer = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -56516,9 +56564,15 @@ var ChartContainer = exports.ChartContainer = function (_React$Component) {
   }
 
   _createClass(ChartContainer, [{
-    key: 'render',
+    key: "handleClick",
+    value: function handleClick() {
+      var container = this.props.containerId;
+      alert("bin geklickt worden: " + container);
+    }
+  }, {
+    key: "render",
     value: function render() {
-      return _react2.default.createElement('div', { id: this.props.containerId });
+      return _react2.default.createElement("div", { onClick: this.handleClick.bind(this), id: this.props.containerId });
     }
   }]);
 
@@ -56700,6 +56754,179 @@ var Product = exports.Product = function (_React$Component) {
 
 
 },{"react":423}],432:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Tile = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var divStyle = {
+  width: '10rem',
+  height: '12rem',
+  borderRadius: '1rem',
+  borderColor: 'lightgrey',
+  borderWidth: '0.1rem',
+  borderStyle: 'solid',
+  margin: '0.75rem',
+  backgroundColor: 'white',
+  boxShadow: '3px 3px 3px #888888'
+};
+var value = 250;
+
+var Tile = exports.Tile = function (_React$Component) {
+  _inherits(Tile, _React$Component);
+
+  function Tile(props) {
+    _classCallCheck(this, Tile);
+
+    var _this = _possibleConstructorReturn(this, (Tile.__proto__ || Object.getPrototypeOf(Tile)).call(this, props));
+
+    _this.state = { value: 250 };
+    return _this;
+  }
+
+  _createClass(Tile, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      var random = Math.floor(Math.random() * 250) + 100;
+      var container = this.props.containerId;
+      alert("bin geklickt worden: " + container);
+      this.state = { value: random };
+      //nachrendern funktioniert noch nicht, aber der state wird geändert
+      alert("state auf: " + random + " geändert");
+    }
+
+    // io.on('connection', function(socket){
+    //   socket.on('tile', function(msg){
+    //     console.log('message: ' + msg);
+    //   });
+    // });
+    // socket.on('tile', function (msg) {
+    //   this.state = {value: msg};
+    // }
+
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { onClick: this.handleClick.bind(this), id: this.props.containerId },
+        _react2.default.createElement('img', { className: 'icon', src: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png' }),
+        _react2.default.createElement(
+          'p',
+          { className: 'value' },
+          this.state.value
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'unit' },
+          '°C'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'title' },
+          ' Drill Temperature '
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'status' },
+          ' running '
+        )
+      );
+    }
+  }]);
+
+  return Tile;
+}(_react2.default.Component);
+
+
+},{"react":423}],433:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var chart, data;
+var cnt = 1;
+var length = 0;
+
+module.exports = {
+    createChart: function createChart() {
+        chart = _c2.default.generate({
+            bindto: '#bar-chart',
+            data: {
+                x: 'x',
+                columns: [['x', new Date()], ['Quality', 80]],
+                type: 'bar'
+            },
+            axis: {
+                y: {
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 100,
+                    min: 0
+                },
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        culling: {
+                            //max: 0
+                        },
+                        format: '%H:%M:%S'
+                    }
+                }
+            },
+            transition: {
+                duration: 0
+            },
+            grid: {
+                y: {
+                    show: true,
+                    lines: [{
+                        value: 70,
+                        class: 'minmax',
+                        text: 'minimum requirement'
+                    }]
+                }
+            }
+        });
+        socket.on('bar', function (msg) {
+            cnt++;
+            if (cnt > 30) {
+                length = 1;
+            }
+
+            chart.flow({
+                columns: [['x', new Date()], ['Quality', msg]],
+                length: length,
+                duration: 500
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],434:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -56718,11 +56945,21 @@ module.exports = {
                 columns: [['data1', 50]],
                 type: 'gauge'
             },
+            gauge: {
+                label: {
+                    format: function format(value, ratio) {
+                        return value + "°C";
+                    }
+                },
+                min: 100,
+                max: 400
+            },
             color: {
-                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                pattern: ['#1e90ff', '#00bfff', '#60B044', '#F6C600', '#FF0000'],
                 threshold: {
-                    unit: '°C', // percentage is default
-                    values: [30, 60, 90, 100]
+                    unit: 'value',
+                    max: 400,
+                    values: [150, 200, 250, 300, 350]
                 }
             }
         });
@@ -56735,7 +56972,38 @@ module.exports = {
 };
 
 
-},{"c3":16}],433:[function(require,module,exports){
+},{"c3":16}],435:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var chart, data;
+var cnt = 1;
+var length = 0;
+
+module.exports = {
+    createChart: function createChart() {
+        chart = _c2.default.generate({
+            bindto: '#pie-chart',
+            data: {
+                columns: [['W1', 30], ['W2', 120], ['W3', 30], ['W4', 120]],
+                type: 'pie'
+            }
+        });
+        socket.on('pie', function (msg) {
+            chart.load({
+                columns: [['W1', msg.w1], ['W2', msg.w2], ['W3', msg.w3], ['W4', msg.w4]]
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],436:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -56754,19 +57022,23 @@ module.exports = {
             bindto: '#test-chart',
             data: {
                 x: 'x',
-                columns: [['x', new Date()], ['Temperatur Bohrer', 50]],
+                columns: [['x', new Date()], ['drill temperature', 225]],
                 type: 'spline'
             },
             axis: {
                 y: {
-                    max: 100,
-                    min: 0
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 350,
+                    min: 100
                 },
                 x: {
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 0
+                            //max: 0
                         },
                         format: '%H:%M:%S'
                     }
@@ -56777,19 +57049,27 @@ module.exports = {
             },
             grid: {
                 y: {
-                    show: true
+                    show: true,
+                    lines: [{
+                        value: 200,
+                        class: 'minmax'
+                    }, {
+                        value: 250,
+                        text: 'ideal °C range',
+                        class: 'minmax'
+                    }]
                 }
             }
         });
         socket.emit('status', 'ready');
         socket.on('test', function (msg) {
             cnt++;
-            if (cnt > 15) {
+            if (cnt > 20) {
                 length = 1;
             }
 
             chart.flow({
-                columns: [['x', new Date()], ['Temperatur Bohrer', msg]],
+                columns: [['x', new Date()], ['drill temperature', msg]],
                 length: length,
                 duration: 500
             });
