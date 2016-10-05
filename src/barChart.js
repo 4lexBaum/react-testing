@@ -18,9 +18,6 @@ module.exports = {
                 ],
                 type: 'bar'
             },
-            bar: {
-                width: 20
-            },
             axis: {
                 y: {
                     padding: {
