@@ -56437,7 +56437,7 @@ var App = exports.App = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile1' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'tile1', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
@@ -56796,7 +56796,7 @@ var Tile = exports.Tile = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Tile.__proto__ || Object.getPrototypeOf(Tile)).call(this, props));
 
-    _this.state = { value: 250 };
+    _this.state = { value: _this.props.value, status: _this.props.status };
     return _this;
   }
 
@@ -56804,11 +56804,11 @@ var Tile = exports.Tile = function (_React$Component) {
     key: 'handleClick',
     value: function handleClick() {
       var that = this;
-      //var random = Math.floor(Math.random() * 250) + 100;
       var container = this.props.containerId;
       alert("streaming started for " + container);
       socket.on('tile', function (msg) {
-        that.setState({ value: msg });
+        that.setState({ value: msg, status: "running" });
+        // that.setState({status: "stopped"});
       });
     }
   }, {
@@ -56817,7 +56817,7 @@ var Tile = exports.Tile = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { onClick: this.handleClick.bind(this), id: this.props.containerId },
-        _react2.default.createElement('img', { className: 'icon', src: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png' }),
+        _react2.default.createElement('img', { className: 'icon', src: this.props.icon }),
         _react2.default.createElement(
           'p',
           { className: 'value' },
@@ -56826,17 +56826,17 @@ var Tile = exports.Tile = function (_React$Component) {
         _react2.default.createElement(
           'p',
           { className: 'unit' },
-          '°C'
+          this.props.unit
         ),
         _react2.default.createElement(
           'p',
           { className: 'title' },
-          ' Drill Temperature '
+          this.props.title
         ),
         _react2.default.createElement(
           'p',
           { className: 'status' },
-          ' running '
+          this.state.status
         )
       );
     }

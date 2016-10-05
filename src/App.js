@@ -34,7 +34,7 @@ export class App extends React.Component {
                   </Row>
                   <Row>
                     <Col md={3}>
-                      <Tile containerId="tile1"></Tile>
+                      <Tile containerId="tile1" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
                       <Tile containerId="tile2"></Tile>

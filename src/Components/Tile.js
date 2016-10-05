@@ -18,27 +18,27 @@ export class Tile extends React.Component {
 
         constructor(props) {
             super(props);
-            this.state = {value: 250};
+            this.state = {value: this.props.value, status: this.props.status};
         }
 
         handleClick(){
           var that = this;
-          //var random = Math.floor(Math.random() * 250) + 100;
           var container = this.props.containerId;
           alert("streaming started for " + container);
           socket.on('tile', function (msg) {
-            that.setState({value: msg});
+            that.setState({value: msg, status: "running"});
+            // that.setState({status: "stopped"});
           });
         }
 
         render() {
           return (
             <div onClick={this.handleClick.bind(this)} id={this.props.containerId}>
-              <img className="icon" src="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png"></img>
+              <img className="icon" src={this.props.icon}></img>
                 <p className="value">{this.state.value}</p>
-                <p className="unit">°C</p>
-                <p className="title"> Drill Temperature </p>
-                <p className="status"> running </p>
+                <p className="unit">{this.props.unit}</p>
+                <p className="title">{this.props.title}</p>
+                <p className="status">{this.state.status}</p>
             </div>
           )
         }
