@@ -27,6 +27,9 @@ export class Tile extends React.Component {
           alert("streaming started for " + container);
           socket.on('tile', function (msg) {
             that.setState({value: msg, status: "running"});
+            socket.on('disconnect', function(){
+              that.setState({status: "stopped"});
+            });
             // that.setState({status: "stopped"});
           });
         }

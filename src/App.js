@@ -37,41 +37,41 @@ export class App extends React.Component {
                       <Tile containerId="tile1" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile2"></Tile>
+                      <Tile containerId="tile2" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile3"></Tile>
+                      <Tile containerId="tile3" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile4"></Tile>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={3}>
-                      <Tile containerId="tile5"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="tile6"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="tile7"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="tile8"></Tile>
+                      <Tile containerId="tile4" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                   </Row>
                   <Row>
                     <Col md={3}>
-                      <Tile containerId="tile9"></Tile>
+                      <Tile containerId="tile5" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile10"></Tile>
+                      <Tile containerId="tile6" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile11"></Tile>
+                      <Tile containerId="tile7" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile12"></Tile>
+                      <Tile containerId="tile8" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={3}>
+                      <Tile containerId="tile9" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                    </Col>
+                    <Col md={3}>
+                      <Tile containerId="tile10" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                    </Col>
+                    <Col md={3}>
+                      <Tile containerId="tile11" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                    </Col>
+                    <Col md={3}>
+                      <Tile containerId="tile12" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
                     </Col>
                   </Row>
               </Grid>
