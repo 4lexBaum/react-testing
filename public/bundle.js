@@ -56803,23 +56803,14 @@ var Tile = exports.Tile = function (_React$Component) {
   _createClass(Tile, [{
     key: 'handleClick',
     value: function handleClick() {
-      var random = Math.floor(Math.random() * 250) + 100;
+      var that = this;
+      //var random = Math.floor(Math.random() * 250) + 100;
       var container = this.props.containerId;
-      alert("bin geklickt worden: " + container);
-      this.setState({ value: random });
-      //nachrendern funktioniert noch nicht, aber der state wird geändert
-      alert("state auf: " + random + " geändert");
+      alert("streaming started for " + container);
+      socket.on('tile', function (msg) {
+        that.setState({ value: msg });
+      });
     }
-
-    // io.on('connection', function(socket){
-    //   socket.on('tile', function(msg){
-    //     console.log('message: ' + msg);
-    //   });
-    // });
-    // socket.on('tile', function (msg) {
-    //   this.state = {value: msg};
-    // }
-
   }, {
     key: 'render',
     value: function render() {
