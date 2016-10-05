@@ -18,6 +18,10 @@ io.on('connection', function (socket) {
         socket.emit("bar", randomBar);
     }, 1000);
     setInterval(function () {
+        var randomTile = Math.floor(Math.random() * 250) + 100;
+        socket.emit("tile", randomTile);
+    }, 1000);
+    setInterval(function () {
         var w1 = Math.floor(Math.random() * 100);
         var w2 = Math.floor(Math.random() * 100);
         var w3 = Math.floor(Math.random() * 100);
