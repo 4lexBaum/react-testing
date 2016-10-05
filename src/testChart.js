@@ -14,7 +14,7 @@ module.exports = {
                 x: 'x',
                 columns: [
                     ['x', new Date()],
-                    ['Temperatur Bohrer', 225]
+                    ['drill temperature', 225]
                 ],
                 type: 'spline'
             },
@@ -64,7 +64,7 @@ module.exports = {
             chart.flow({
                 columns: [
                     ['x', new Date()],
-                    ['Temperatur Bohrer', msg]
+                    ['drill temperature', msg]
                 ],
                 length: length,
                 duration: 500
