@@ -56447,60 +56447,52 @@ var App = exports.App = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile3', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile4', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
-          )
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Row,
-          null,
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile5', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile6', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile7', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile8', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
-          )
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Row,
-          null,
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile9', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile10', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile11', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'tile12', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drill Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           )
         )
       );
@@ -56790,12 +56782,10 @@ var Tile = exports.Tile = function (_React$Component) {
   }
 
   _createClass(Tile, [{
-    key: "handleClick",
-    value: function handleClick() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var that = this;
-      var container = this.props.containerId;
-      alert("streaming started for " + container);
-      var valueTag = "#" + container;
+      var valueTag = "#" + this.props.containerId;
       socket.on(this.props.streamId, function (msg) {
         if (msg <= 150) {
           $(valueTag).css("color", "#1e90ff");
@@ -56819,7 +56809,7 @@ var Tile = exports.Tile = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { onClick: this.handleClick.bind(this) },
+        null,
         _react2.default.createElement("img", { className: "icon", src: this.props.icon }),
         _react2.default.createElement(
           "p",

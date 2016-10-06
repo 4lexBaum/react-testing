@@ -40,38 +40,34 @@ export class App extends React.Component {
                       <Tile containerId="millingTile" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile3" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile2" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile4" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={3}>
-                      <Tile containerId="tile5" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile2" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile6" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile3" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile7" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile3" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile8" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={3}>
-                      <Tile containerId="tile9" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile4" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile10" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile4" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile11" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile5" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile12" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile5" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
+                    </Col>
+                    <Col md={3}>
+                      <Tile containerId="drillingTile6" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
+                    </Col>
+                    <Col md={3}>
+                      <Tile containerId="millingTile6" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                   </Row>
               </Grid>

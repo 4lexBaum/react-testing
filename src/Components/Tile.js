@@ -9,11 +9,9 @@ export class Tile extends React.Component {
             this.state = {value: this.props.value, status: this.props.status};
         }
 
-        handleClick(){
+        componentDidMount(){
           var that = this;
-          var container = this.props.containerId;
-          alert("streaming started for " + container);
-          var valueTag = "#" + container;
+          var valueTag = "#" + this.props.containerId;
           socket.on(this.props.streamId, function (msg) {
             if(msg <= 150){
               $(valueTag).css("color","#1e90ff")
@@ -35,12 +33,12 @@ export class Tile extends React.Component {
 
         render() {
           return (
-            <div onClick={this.handleClick.bind(this)}>
+            <div>
               <img className="icon" src={this.props.icon}></img>
-                <p className="value" id={this.props.containerId}>{this.state.value}</p>
-                <p className="unit">{this.props.unit}</p>
-                <p className="title">{this.props.title}</p>
-                <p className="status">{this.state.status}</p>
+              <p className="value" id={this.props.containerId}>{this.state.value}</p>
+              <p className="unit">{this.props.unit}</p>
+              <p className="title">{this.props.title}</p>
+              <p className="status">{this.state.status}</p>
             </div>
           )
         }
