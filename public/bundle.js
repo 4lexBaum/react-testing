@@ -56437,62 +56437,62 @@ var App = exports.App = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           )
         )
       );
@@ -56746,7 +56746,7 @@ var Product = exports.Product = function (_React$Component) {
 
 
 },{"react":423}],432:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -56755,7 +56755,7 @@ exports.Tile = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -56782,22 +56782,35 @@ var Tile = exports.Tile = function (_React$Component) {
   }
 
   _createClass(Tile, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
       var that = this;
       var valueTag = "#" + this.props.containerId;
+      var bordersarray = this.props.borders.split(',');
+      var colorsarray = this.props.colors.split(',');
       socket.on(this.props.streamId, function (msg) {
-        if (msg <= 150) {
-          $(valueTag).css("color", "#1e90ff");
-        } else if (msg <= 200) {
-          $(valueTag).css("color", "#00bfff");
-        } else if (msg <= 250) {
-          $(valueTag).css("color", "#60B044");
-        } else if (msg <= 300) {
-          $(valueTag).css("color", "#F6C600");
+        if (msg <= bordersarray[0]) {
+          $(valueTag).css("color", colorsarray[0]);
+        } else if (msg <= bordersarray[1]) {
+          $(valueTag).css("color", colorsarray[1]);
+        } else if (msg <= bordersarray[2]) {
+          $(valueTag).css("color", colorsarray[2]);
+        } else if (msg <= bordersarray[3]) {
+          $(valueTag).css("color", colorsarray[3]);
         } else {
-          $(valueTag).css("color", "#FF0000");
+          $(valueTag).css("color", colorsarray[4]);
         }
+        // if(msg <= 150){
+        //   $(valueTag).css("color","#1e90ff")
+        // }else if(msg <= 200){
+        //   $(valueTag).css("color","#00bfff")
+        // }else if(msg <= 250){
+        //   $(valueTag).css("color","#60B044")
+        // }else if(msg <= 300){
+        //   $(valueTag).css("color","#F6C600")
+        // }else{
+        //   $(valueTag).css("color","#FF0000")
+        // }
         that.setState({ value: msg, status: "running" });
         socket.on('disconnect', function () {
           that.setState({ status: "stopped" });
@@ -56805,30 +56818,30 @@ var Tile = exports.Tile = function (_React$Component) {
       });
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
-        _react2.default.createElement("img", { className: "icon", src: this.props.icon }),
+        _react2.default.createElement('img', { className: 'icon', src: this.props.icon }),
         _react2.default.createElement(
-          "p",
-          { className: "value", id: this.props.containerId },
+          'p',
+          { className: 'value', id: this.props.containerId },
           this.state.value
         ),
         _react2.default.createElement(
-          "p",
-          { className: "unit" },
+          'p',
+          { className: 'unit' },
           this.props.unit
         ),
         _react2.default.createElement(
-          "p",
-          { className: "title" },
+          'p',
+          { className: 'title' },
           this.props.title
         ),
         _react2.default.createElement(
-          "p",
-          { className: "status" },
+          'p',
+          { className: 'status' },
           this.state.status
         )
       );
