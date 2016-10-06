@@ -2,19 +2,18 @@
 
 import c3 from 'c3';
 
-var chart, data;
-var cnt = 1;
-var length = 0;
-
 module.exports = {
     createChart: function () {
+        var chart, data;
+        var cnt = 0;
+        var length = 0;
         chart = c3.generate({
             bindto: '#bar-chart',
             data: {
                 x: 'x',
                 columns: [
-                    ['x', new Date()],
-                    ['Quality', 80]
+                    ['x'],
+                    ['Quality']
                 ],
                 type: 'bar'
             },

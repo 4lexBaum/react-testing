@@ -37,34 +37,17 @@ io.on('connection', function (socket) {
             'w4': w4
         });
     }, 3000);
-    socket.on('status', function (msg) {
-        if (msg === 'ready') {
-            console.log("streaming started");
-            var start, range;
-            var cnt = 1;
 
-            function send() {
-                /*  if((cnt % 10) === 0){
-                    start = 100;
-                    range = 400;
-                  } else{
-                    start = 200;
-                    range = 50;
-                  }*/
-                var random = Math.floor(Math.random() * 250) + 100;
-                socket.emit("test", random);
-                socket.emit("gauge", random);
-                var timeout = Math.floor(Math.random() * 4000) + 1000;
-                cnt++;
-                setTimeout(function () {
-                    send();
-                }, timeout)
-            }
+    function send() {
+        var random = Math.floor(Math.random() * 250) + 100;
+        socket.emit("test", random);
+        socket.emit("gauge", random);
+        var timeout = Math.floor(Math.random() * 4000) + 1000;
+        setTimeout(function () {
             send();
-
-
-        }
-    });
+        }, timeout)
+    }
+    send();
 });
 
 http.listen(3001, function () {

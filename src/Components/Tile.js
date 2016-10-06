@@ -26,17 +26,6 @@ export class Tile extends React.Component {
             }else{
               $(valueTag).css("color",colorsarray[4])
             }
-            // if(msg <= 150){
-            //   $(valueTag).css("color","#1e90ff")
-            // }else if(msg <= 200){
-            //   $(valueTag).css("color","#00bfff")
-            // }else if(msg <= 250){
-            //   $(valueTag).css("color","#60B044")
-            // }else if(msg <= 300){
-            //   $(valueTag).css("color","#F6C600")
-            // }else{
-            //   $(valueTag).css("color","#FF0000")
-            // }
             that.setState({value: msg, status: "running"});
             socket.on('disconnect', function(){
               that.setState({status: "stopped"});
@@ -44,9 +33,13 @@ export class Tile extends React.Component {
           });
         }
 
+        handleClick(){
+          window.location.href = '/#/test';
+        }
+
         render() {
           return (
-            <div>
+            <div onClick={this.handleClick}>
               <img className="icon" src={this.props.icon}></img>
               <p className="value" id={this.props.containerId}>{this.state.value}</p>
               <p className="unit">{this.props.unit}</p>

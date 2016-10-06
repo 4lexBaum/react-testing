@@ -26,7 +26,7 @@ export class App extends React.Component {
 
         render() {
             return (
-              <Grid>
+                <Grid>
                   <Row className="show-grid">
                     <Col md={16}>
                       <Header></Header>
