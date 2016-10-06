@@ -34,10 +34,10 @@ export class App extends React.Component {
                   </Row>
                   <Row>
                     <Col md={3}>
-                      <Tile containerId="tile1" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile" streamId="drill" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="tile2" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile" streamId="mill" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
                       <Tile containerId="tile3" icon="https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png" value="100" unit="°C" title="Drill Temperature" status="stopped"></Tile>

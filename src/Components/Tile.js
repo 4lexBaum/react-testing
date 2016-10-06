@@ -1,18 +1,6 @@
 import React from 'react';
 
-var divStyle = {
-  width: '10rem',
-  height: '12rem',
-  borderRadius: '1rem',
-  borderColor: 'lightgrey',
-  borderWidth: '0.1rem',
-  borderStyle: 'solid',
-  margin: '0.75rem',
-  backgroundColor: 'white',
-  boxShadow: '3px 3px 3px #888888'
-};
 var value = 250;
-
 
 export class Tile extends React.Component {
 
@@ -25,20 +13,31 @@ export class Tile extends React.Component {
           var that = this;
           var container = this.props.containerId;
           alert("streaming started for " + container);
-          socket.on('tile', function (msg) {
+          var valueTag = "#" + container;
+          socket.on(this.props.streamId, function (msg) {
+            if(msg <= 150){
+              $(valueTag).css("color","#1e90ff")
+            }else if(msg <= 200){
+              $(valueTag).css("color","#00bfff")
+            }else if(msg <= 250){
+              $(valueTag).css("color","#60B044")
+            }else if(msg <= 300){
+              $(valueTag).css("color","#F6C600")
+            }else{
+              $(valueTag).css("color","#FF0000")
+            }
             that.setState({value: msg, status: "running"});
             socket.on('disconnect', function(){
               that.setState({status: "stopped"});
             });
-            // that.setState({status: "stopped"});
           });
         }
 
         render() {
           return (
-            <div onClick={this.handleClick.bind(this)} id={this.props.containerId}>
+            <div onClick={this.handleClick.bind(this)}>
               <img className="icon" src={this.props.icon}></img>
-                <p className="value">{this.state.value}</p>
+                <p className="value" id={this.props.containerId}>{this.state.value}</p>
                 <p className="unit">{this.props.unit}</p>
                 <p className="title">{this.props.title}</p>
                 <p className="status">{this.state.status}</p>
