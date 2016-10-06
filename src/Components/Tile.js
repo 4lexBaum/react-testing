@@ -31,9 +31,13 @@ export class Tile extends React.Component {
           });
         }
 
+        handleClick(){
+          window.location.href = '/#/test';
+        }
+
         render() {
           return (
-            <div>
+            <div onClick={this.handleClick}>
               <img className="icon" src={this.props.icon}></img>
               <p className="value" id={this.props.containerId}>{this.state.value}</p>
               <p className="unit">{this.props.unit}</p>

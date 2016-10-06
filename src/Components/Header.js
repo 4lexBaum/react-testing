@@ -16,20 +16,20 @@ export class Header extends React.Component{
     super(props);
   }
 
-  handleSelect(selectedKey) {
+  /*handleSelect(selectedKey) {
     alert('selected ' + selectedKey);
-  }
+  }*/
 
   render(){
     return(
       <Navbar>
        <Navbar.Header>
          <Navbar.Brand>
-           <a href="">Production Analyzing</a>
+           <a href="/">Production Analyzing</a>
          </Navbar.Brand>
        </Navbar.Header>
-         <Nav pullLeft stacked onSelect={this.handleSelect}>
-          <NavItem eventKey={1} href="#">Project Intro</NavItem>
+         <Nav pullLeft stacked>
+          <NavItem eventKey={1} href="/test">Project Intro</NavItem>
            <NavItem eventKey={2} href="#">Machine</NavItem>
            <NavItem eventKey={3} href="#">Statistics</NavItem>
          </Nav>

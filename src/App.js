@@ -14,6 +14,8 @@ import { Row } from 'react-bootstrap';
 
 import { Col } from 'react-bootstrap';
 
+import { Button } from 'react-bootstrap';
+
 export class App extends React.Component {
 
         constructor(props) {
@@ -22,6 +24,10 @@ export class App extends React.Component {
               { title: 'Basketball', price: '10€'},
               { price: '8€'}
             ];
+        }
+        
+        componentWillUnmount(){
+          socket.removeAllListeners();
         }
 
         render() {

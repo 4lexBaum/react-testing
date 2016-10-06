@@ -9,7 +9,7 @@ import c3 from 'c3';
 var testChart = require('./src/testChart.js');
 var gaugeChart = require('./src/gaugeChart.js');
 var barChart = require('./src/barChart.js');
-var pieChart = require('./src/pieChart.js');
+var pieChart = require('./src/pieChart.js');  
 
 ReactDOM.render(
     <App /> ,

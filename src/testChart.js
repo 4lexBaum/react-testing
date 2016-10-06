@@ -2,19 +2,19 @@
 
 import c3 from 'c3';
 
-var chart, data;
-var cnt = 1;
-var length = 0;
 
 module.exports = {
     createChart: function () {
+        var chart, data;
+        var cnt = 0;
+        var length = 0;
         chart = c3.generate({
             bindto: '#test-chart',
             data: {
                 x: 'x',
                 columns: [
-                    ['x', new Date()],
-                    ['drill temperature', 225]
+                    ['x'],
+                    ['drill temperature']
                 ],
                 type: 'spline'
             },
@@ -24,8 +24,8 @@ module.exports = {
                         top: 0,
                         bottom: 0
                     },
-                    max: 350,
-                    min: 100
+                    max: 360,
+                    min: 90
                 },
                 x: {
                     type: 'timeseries',
@@ -54,7 +54,6 @@ module.exports = {
                 }
             }
         });
-        socket.emit('status', 'ready');
         socket.on('test', function (msg) {
             cnt++;
             if (cnt > 20) {

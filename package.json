@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "browserify -t [babelify reactify] ./main.js -o ./public/bundle.js",
+    "build-dev": "browserify -t [babelify reactify] ./index.js -o ./public/bundle.js",
     "server": "node ./src/Backend/server.js"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
     "reactify": "^1.1.1",
     "socket.io": "^1.4.8"
   }
