@@ -54,7 +54,7 @@ module.exports = {
                 }
             }
         });
-        socket.on('test', function (msg) {
+        socket.on('line', function (msg) {
             cnt++;
             if (cnt > 20) {
                 length = 1;

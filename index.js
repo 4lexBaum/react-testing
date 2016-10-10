@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
-import { App } from './src/App';
-import { TestModul } from './src/TestModul';
-
-var testChart = require('./src/testChart.js');
-var gaugeChart = require('./src/gaugeChart.js');
-var barChart = require('./src/barChart.js');
-var pieChart = require('./src/pieChart.js');
+import { Dashboard } from './src/Modules/Dashboard';
+import { TestModule } from './src/Modules/TestModule';
 
 ReactDOM.render((
   <Router history={hashHistory}>
-    <Route path="/" component={App}/>
-    <Route path="/test" component={TestModul}/>
+    <Route path="/" component={Dashboard}/>
+    <Route path="/test" component={TestModule}/>
   </Router>
 ), document.getElementById('main'));

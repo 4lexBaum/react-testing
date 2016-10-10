@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Product } from './Components/Product.js';
+import { Product } from '../Components/Product.js';
 
-import { ChartContainer } from './Components/ChartContainer.js';
+import { ChartContainer } from '../Components/ChartContainer.js';
 
-import { Header } from './Components/Header.js';
+import { Header } from '../Components/Header.js';
 
 import { Grid } from 'react-bootstrap';
 
@@ -12,12 +12,12 @@ import { Row } from 'react-bootstrap';
 
 import { Col } from 'react-bootstrap';
 
-var testChart = require('./testChart.js');
-var gaugeChart = require('./gaugeChart.js');
-var barChart = require('./barChart.js');
-var pieChart = require('./pieChart.js');
+var testChart = require('../Charts/lineChart.js');
+var gaugeChart = require('../Charts/gaugeChart.js');
+var barChart = require('../Charts/barChart.js');
+var pieChart = require('../Charts/pieChart.js');
 
-export class TestModul extends React.Component {
+export class TestModule extends React.Component {
 
         constructor(props) {
             super(props);

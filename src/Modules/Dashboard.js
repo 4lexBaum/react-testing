@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Product } from './Components/Product.js';
+import { Product } from '../Components/Product.js';
 
-import { ChartContainer } from './Components/ChartContainer.js';
+import { ChartContainer } from '../Components/ChartContainer.js';
 
-import { Header } from './Components/Header.js';
+import { Header } from '../Components/Header.js';
 
-import { Tile } from './Components/Tile.js';
+import { Tile } from '../Components/Tile.js';
 
 import { Grid } from 'react-bootstrap';
 
@@ -14,7 +14,7 @@ import { Row } from 'react-bootstrap';
 
 import { Col } from 'react-bootstrap';
 
-export class App extends React.Component {
+export class Dashboard extends React.Component {
 
         constructor(props) {
             super(props);

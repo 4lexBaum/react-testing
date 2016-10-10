@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
 
     function send() {
         var random = Math.floor(Math.random() * 250) + 100;
-        socket.emit("test", random);
+        socket.emit("line", random);
         socket.emit("gauge", random);
         var timeout = Math.floor(Math.random() * 4000) + 1000;
         setTimeout(function () {
