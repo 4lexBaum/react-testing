@@ -11,26 +11,21 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouter = require('react-router');
 
-var _App = require('./src/App');
+var _Dashboard = require('./src/Modules/Dashboard');
 
-var _TestModul = require('./src/TestModul');
+var _TestModule = require('./src/Modules/TestModule');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var testChart = require('./src/testChart.js');
-var gaugeChart = require('./src/gaugeChart.js');
-var barChart = require('./src/barChart.js');
-var pieChart = require('./src/pieChart.js');
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRouter.Router,
   { history: _reactRouter.hashHistory },
-  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App.App }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/test', component: _TestModul.TestModul })
+  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Dashboard.Dashboard }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/test', component: _TestModule.TestModule })
 ), document.getElementById('main'));
 
 
-},{"./src/App":489,"./src/TestModul":494,"./src/barChart.js":495,"./src/gaugeChart.js":496,"./src/pieChart.js":497,"./src/testChart.js":498,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
+},{"./src/Modules/Dashboard":497,"./src/Modules/TestModule":498,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":18}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -61629,43 +61624,127 @@ function isReactComponent(component) {
 },{"_process":183,"invariant":180,"react":483}],488:[function(require,module,exports){
 arguments[4][178][0].apply(exports,arguments)
 },{"_process":183,"dup":178}],489:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.App = undefined;
+var _c = require('c3');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Product = require('./Components/Product.js');
-
-var _ChartContainer = require('./Components/ChartContainer.js');
-
-var _Header = require('./Components/Header.js');
-
-var _Tile = require('./Components/Tile.js');
-
-var _reactBootstrap = require('react-bootstrap');
+var _c2 = _interopRequireDefault(_c);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+module.exports = {
+    createChart: function createChart() {
+        var chart, data;
+        var cnt = 0;
+        var length = 0;
+        chart = _c2.default.generate({
+            bindto: '#bar-chart',
+            data: {
+                x: 'x',
+                columns: [['x'], ['Quality']],
+                type: 'bar'
+            },
+            axis: {
+                y: {
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 100,
+                    min: 0
+                },
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        culling: {
+                            //max: 0
+                        },
+                        format: '%H:%M:%S'
+                    }
+                }
+            },
+            transition: {
+                duration: 0
+            },
+            grid: {
+                y: {
+                    show: true,
+                    lines: [{
+                        value: 70,
+                        class: 'minmax',
+                        text: 'minimum requirement'
+                    }]
+                }
+            }
+        });
+        socket.on('bar', function (msg) {
+            cnt++;
+            if (cnt > 30) {
+                length = 1;
+            }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+            chart.flow({
+                columns: [['x', new Date()], ['Quality', msg]],
+                length: length,
+                duration: 500
+            });
+        });
+    }
+};
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = exports.App = function (_React$Component) {
-  _inherits(App, _React$Component);
+},{"c3":16}],490:[function(require,module,exports){
+"use strict";
 
-  function App(props) {
-    _classCallCheck(this, App);
+var _c = require('c3');
 
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var chart, data;
+
+module.exports = {
+    createChart: function createChart() {
+        chart = _c2.default.generate({
+            bindto: '#gauge-chart',
+            data: {
+                columns: [['data1', 50]],
+                type: 'gauge'
+            },
+            gauge: {
+                label: {
+                    format: function format(value, ratio) {
+                        return value + "°C";
+                    }
+                },
+                min: 100,
+                max: 400
+            },
+            color: {
+                pattern: ['#1e90ff', '#00bfff', '#60B044', '#F6C600', '#FF0000'],
+                threshold: {
+                    unit: 'value',
+                    max: 400,
+                    values: [150, 200, 250, 300, 350]
+                }
+            }
+        });
+        socket.on('gauge', function (msg) {
+            chart.load({
+                columns: [['data1', msg]]
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],491:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+<<<<<<< HEAD
     return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
@@ -61749,35 +61828,108 @@ var App = exports.App = function (_React$Component) {
           )
         )
       );
+=======
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = {
+    createChart: function createChart() {
+        var chart, data;
+        var cnt = 0;
+        var length = 0;
+        chart = _c2.default.generate({
+            bindto: '#test-chart',
+            data: {
+                x: 'x',
+                columns: [['x'], ['drill temperature']],
+                type: 'spline'
+            },
+            axis: {
+                y: {
+                    padding: {
+                        top: 0,
+                        bottom: 0
+                    },
+                    max: 360,
+                    min: 90
+                },
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        culling: {
+                            //max: 0
+                        },
+                        format: '%H:%M:%S'
+                    }
+                }
+            },
+            transition: {
+                duration: 0
+            },
+            grid: {
+                y: {
+                    show: true,
+                    lines: [{
+                        value: 200,
+                        class: 'minmax'
+                    }, {
+                        value: 250,
+                        text: 'ideal °C range',
+                        class: 'minmax'
+                    }]
+                }
+            }
+        });
+        socket.on('line', function (msg) {
+            cnt++;
+            if (cnt > 20) {
+                length = 1;
+            }
+
+            chart.flow({
+                columns: [['x', new Date()], ['drill temperature', msg]],
+                length: length,
+                duration: 500
+            });
+        });
+>>>>>>> master
     }
-  }]);
-
-  return App;
-}(_react2.default.Component);
-/*
-<!--
-<Row>
-  <Col md={6}>
-    <ChartContainer containerId="test-chart"></ChartContainer>
-  </Col>
-  <Col md={6} id="gauge">
-    <ChartContainer containerId="gauge-chart"></ChartContainer>
-  </Col>
-</Row>
-<Row>
-  <Col md={6}>
-    <ChartContainer containerId="bar-chart"></ChartContainer>
-  </Col>
-  <Col md={6}>
-    <ChartContainer containerId="pie-chart"></ChartContainer>
-  </Col>
-</Row>
--->
-
-*/
+};
 
 
-},{"./Components/ChartContainer.js":490,"./Components/Header.js":491,"./Components/Product.js":492,"./Components/Tile.js":493,"react":483,"react-bootstrap":271}],490:[function(require,module,exports){
+},{"c3":16}],492:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var chart, data;
+var cnt = 1;
+var length = 0;
+
+module.exports = {
+    createChart: function createChart() {
+        chart = _c2.default.generate({
+            bindto: '#pie-chart',
+            data: {
+                columns: [['W1', 30], ['W2', 120], ['W3', 30], ['W4', 120]],
+                type: 'pie'
+            }
+        });
+        socket.on('pie', function (msg) {
+            chart.load({
+                columns: [['W1', msg.w1], ['W2', msg.w2], ['W3', msg.w3], ['W4', msg.w4]]
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],493:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -61825,7 +61977,7 @@ var ChartContainer = exports.ChartContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],491:[function(require,module,exports){
+},{"react":483}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61932,7 +62084,7 @@ var Header = exports.Header = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483,"react-bootstrap":271}],492:[function(require,module,exports){
+},{"react":483,"react-bootstrap":271}],495:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61997,7 +62149,7 @@ var Product = exports.Product = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],493:[function(require,module,exports){
+},{"react":483}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62100,13 +62252,13 @@ var Tile = exports.Tile = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],494:[function(require,module,exports){
+},{"react":483}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TestModul = undefined;
+exports.Dashboard = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -62114,11 +62266,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Product = require('./Components/Product.js');
+var _Product = require('../Components/Product.js');
 
-var _ChartContainer = require('./Components/ChartContainer.js');
+var _ChartContainer = require('../Components/ChartContainer.js');
 
-var _Header = require('./Components/Header.js');
+var _Header = require('../Components/Header.js');
+
+var _Tile = require('../Components/Tile.js');
 
 var _reactBootstrap = require('react-bootstrap');
 
@@ -62130,21 +62284,171 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var testChart = require('./testChart.js');
-var gaugeChart = require('./gaugeChart.js');
-var barChart = require('./barChart.js');
-var pieChart = require('./pieChart.js');
+var Dashboard = exports.Dashboard = function (_React$Component) {
+  _inherits(Dashboard, _React$Component);
 
-var TestModul = exports.TestModul = function (_React$Component) {
-  _inherits(TestModul, _React$Component);
+  function Dashboard(props) {
+    _classCallCheck(this, Dashboard);
 
-  function TestModul(props) {
-    _classCallCheck(this, TestModul);
+    var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
 
-    return _possibleConstructorReturn(this, (TestModul.__proto__ || Object.getPrototypeOf(TestModul)).call(this, props));
+    _this._products = [{ title: 'Basketball', price: '10€' }, { price: '8€' }];
+    return _this;
   }
 
-  _createClass(TestModul, [{
+  _createClass(Dashboard, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactBootstrap.Grid,
+        null,
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          { className: 'show-grid' },
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 16 },
+            _react2.default.createElement(_Header.Header, null)
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { md: 3 },
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Dashboard;
+}(_react2.default.Component);
+/*
+<!--
+<Row>
+  <Col md={6}>
+    <ChartContainer containerId="test-chart"></ChartContainer>
+  </Col>
+  <Col md={6} id="gauge">
+    <ChartContainer containerId="gauge-chart"></ChartContainer>
+  </Col>
+</Row>
+<Row>
+  <Col md={6}>
+    <ChartContainer containerId="bar-chart"></ChartContainer>
+  </Col>
+  <Col md={6}>
+    <ChartContainer containerId="pie-chart"></ChartContainer>
+  </Col>
+</Row>
+-->
+
+*/
+
+
+},{"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":495,"../Components/Tile.js":496,"react":483,"react-bootstrap":271}],498:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TestModule = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Product = require('../Components/Product.js');
+
+var _ChartContainer = require('../Components/ChartContainer.js');
+
+var _Header = require('../Components/Header.js');
+
+var _reactBootstrap = require('react-bootstrap');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var testChart = require('../Charts/lineChart.js');
+var gaugeChart = require('../Charts/gaugeChart.js');
+var barChart = require('../Charts/barChart.js');
+var pieChart = require('../Charts/pieChart.js');
+
+var TestModule = exports.TestModule = function (_React$Component) {
+  _inherits(TestModule, _React$Component);
+
+  function TestModule(props) {
+    _classCallCheck(this, TestModule);
+
+    return _possibleConstructorReturn(this, (TestModule.__proto__ || Object.getPrototypeOf(TestModule)).call(this, props));
+  }
+
+  _createClass(TestModule, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       testChart.createChart();
@@ -62204,228 +62508,8 @@ var TestModul = exports.TestModul = function (_React$Component) {
     }
   }]);
 
-  return TestModul;
+  return TestModule;
 }(_react2.default.Component);
 
 
-},{"./Components/ChartContainer.js":490,"./Components/Header.js":491,"./Components/Product.js":492,"./barChart.js":495,"./gaugeChart.js":496,"./pieChart.js":497,"./testChart.js":498,"react":483,"react-bootstrap":271}],495:[function(require,module,exports){
-"use strict";
-
-var _c = require('c3');
-
-var _c2 = _interopRequireDefault(_c);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-    createChart: function createChart() {
-        var chart, data;
-        var cnt = 0;
-        var length = 0;
-        chart = _c2.default.generate({
-            bindto: '#bar-chart',
-            data: {
-                x: 'x',
-                columns: [['x'], ['Quality']],
-                type: 'bar'
-            },
-            axis: {
-                y: {
-                    padding: {
-                        top: 0,
-                        bottom: 0
-                    },
-                    max: 100,
-                    min: 0
-                },
-                x: {
-                    type: 'timeseries',
-                    tick: {
-                        culling: {
-                            //max: 0
-                        },
-                        format: '%H:%M:%S'
-                    }
-                }
-            },
-            transition: {
-                duration: 0
-            },
-            grid: {
-                y: {
-                    show: true,
-                    lines: [{
-                        value: 70,
-                        class: 'minmax',
-                        text: 'minimum requirement'
-                    }]
-                }
-            }
-        });
-        socket.on('bar', function (msg) {
-            cnt++;
-            if (cnt > 30) {
-                length = 1;
-            }
-
-            chart.flow({
-                columns: [['x', new Date()], ['Quality', msg]],
-                length: length,
-                duration: 500
-            });
-        });
-    }
-};
-
-
-},{"c3":16}],496:[function(require,module,exports){
-"use strict";
-
-var _c = require('c3');
-
-var _c2 = _interopRequireDefault(_c);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var chart, data;
-
-module.exports = {
-    createChart: function createChart() {
-        chart = _c2.default.generate({
-            bindto: '#gauge-chart',
-            data: {
-                columns: [['data1', 50]],
-                type: 'gauge'
-            },
-            gauge: {
-                label: {
-                    format: function format(value, ratio) {
-                        return value + "°C";
-                    }
-                },
-                min: 100,
-                max: 400
-            },
-            color: {
-                pattern: ['#1e90ff', '#00bfff', '#60B044', '#F6C600', '#FF0000'],
-                threshold: {
-                    unit: 'value',
-                    max: 400,
-                    values: [150, 200, 250, 300, 350]
-                }
-            }
-        });
-        socket.on('gauge', function (msg) {
-            chart.load({
-                columns: [['data1', msg]]
-            });
-        });
-    }
-};
-
-
-},{"c3":16}],497:[function(require,module,exports){
-"use strict";
-
-var _c = require('c3');
-
-var _c2 = _interopRequireDefault(_c);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var chart, data;
-var cnt = 1;
-var length = 0;
-
-module.exports = {
-    createChart: function createChart() {
-        chart = _c2.default.generate({
-            bindto: '#pie-chart',
-            data: {
-                columns: [['W1', 30], ['W2', 120], ['W3', 30], ['W4', 120]],
-                type: 'pie'
-            }
-        });
-        socket.on('pie', function (msg) {
-            chart.load({
-                columns: [['W1', msg.w1], ['W2', msg.w2], ['W3', msg.w3], ['W4', msg.w4]]
-            });
-        });
-    }
-};
-
-
-},{"c3":16}],498:[function(require,module,exports){
-"use strict";
-
-var _c = require('c3');
-
-var _c2 = _interopRequireDefault(_c);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-    createChart: function createChart() {
-        var chart, data;
-        var cnt = 0;
-        var length = 0;
-        chart = _c2.default.generate({
-            bindto: '#test-chart',
-            data: {
-                x: 'x',
-                columns: [['x'], ['drill temperature']],
-                type: 'spline'
-            },
-            axis: {
-                y: {
-                    padding: {
-                        top: 0,
-                        bottom: 0
-                    },
-                    max: 360,
-                    min: 90
-                },
-                x: {
-                    type: 'timeseries',
-                    tick: {
-                        culling: {
-                            //max: 0
-                        },
-                        format: '%H:%M:%S'
-                    }
-                }
-            },
-            transition: {
-                duration: 0
-            },
-            grid: {
-                y: {
-                    show: true,
-                    lines: [{
-                        value: 200,
-                        class: 'minmax'
-                    }, {
-                        value: 250,
-                        text: 'ideal °C range',
-                        class: 'minmax'
-                    }]
-                }
-            }
-        });
-        socket.on('test', function (msg) {
-            cnt++;
-            if (cnt > 20) {
-                length = 1;
-            }
-
-            chart.flow({
-                columns: [['x', new Date()], ['drill temperature', msg]],
-                length: length,
-                duration: 500
-            });
-        });
-    }
-};
-
-
-},{"c3":16}]},{},[1]);
+},{"../Charts/barChart.js":489,"../Charts/gaugeChart.js":490,"../Charts/lineChart.js":491,"../Charts/pieChart.js":492,"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":495,"react":483,"react-bootstrap":271}]},{},[1]);
