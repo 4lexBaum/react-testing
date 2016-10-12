@@ -61666,10 +61666,7 @@ var App = exports.App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-    _this._products = [{ title: 'Basketball', price: '10€' }, { price: '8€' }];
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
   _createClass(App, [{
@@ -61693,17 +61690,17 @@ var App = exports.App = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
@@ -62022,8 +62019,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var value = 250;
-
 var Tile = exports.Tile = function (_React$Component) {
   _inherits(Tile, _React$Component);
 
@@ -62041,19 +62036,23 @@ var Tile = exports.Tile = function (_React$Component) {
     value: function componentDidMount() {
       var that = this;
       var valueTag = "#" + this.props.containerId;
-      var bordersarray = this.props.borders.split(',');
-      var colorsarray = this.props.colors.split(',');
+      if (typeof that.props.borders !== 'undefined' && typeof that.props.colors !== 'undefined') {
+        var bordersarray = this.props.borders.split(',');
+        var colorsarray = this.props.colors.split(',');
+      }
       socket.on(this.props.streamId, function (msg) {
-        if (msg <= bordersarray[0]) {
-          $(valueTag).css("color", colorsarray[0]);
-        } else if (msg <= bordersarray[1]) {
-          $(valueTag).css("color", colorsarray[1]);
-        } else if (msg <= bordersarray[2]) {
-          $(valueTag).css("color", colorsarray[2]);
-        } else if (msg <= bordersarray[3]) {
-          $(valueTag).css("color", colorsarray[3]);
-        } else {
-          $(valueTag).css("color", colorsarray[4]);
+        if (typeof that.props.borders !== 'undefined' && typeof that.props.colors !== 'undefined') {
+          if (msg <= bordersarray[0]) {
+            $(valueTag).css("color", colorsarray[0]);
+          } else if (msg <= bordersarray[1]) {
+            $(valueTag).css("color", colorsarray[1]);
+          } else if (msg <= bordersarray[2]) {
+            $(valueTag).css("color", colorsarray[2]);
+          } else if (msg <= bordersarray[3]) {
+            $(valueTag).css("color", colorsarray[3]);
+          } else {
+            $(valueTag).css("color", colorsarray[4]);
+          }
         }
         that.setState({ value: msg, status: "running" });
         socket.on('disconnect', function () {

@@ -1,7 +1,5 @@
 import React from 'react';
 
-var value = 250;
-
 export class Tile extends React.Component {
 
         constructor(props) {
@@ -12,19 +10,23 @@ export class Tile extends React.Component {
         componentDidMount(){
           var that = this;
           var valueTag = "#" + this.props.containerId;
-          var bordersarray = this.props.borders.split(',');
-          var colorsarray = this.props.colors.split(',');
+          if (typeof that.props.borders !== 'undefined' && typeof that.props.colors !== 'undefined') {
+            var bordersarray = this.props.borders.split(',');
+            var colorsarray = this.props.colors.split(',');
+          }
           socket.on(this.props.streamId, function (msg) {
-            if(msg <= bordersarray[0]){
-              $(valueTag).css("color",colorsarray[0])
-            }else if(msg <= bordersarray[1]){
-              $(valueTag).css("color",colorsarray[1])
-            }else if(msg <= bordersarray[2]){
-              $(valueTag).css("color",colorsarray[2])
-            }else if(msg <= bordersarray[3]){
-              $(valueTag).css("color",colorsarray[3])
-            }else{
-              $(valueTag).css("color",colorsarray[4])
+            if (typeof that.props.borders !== 'undefined' && typeof that.props.colors !== 'undefined') {
+              if(msg <= bordersarray[0]){
+                $(valueTag).css("color",colorsarray[0])
+              }else if(msg <= bordersarray[1]){
+                $(valueTag).css("color",colorsarray[1])
+              }else if(msg <= bordersarray[2]){
+                $(valueTag).css("color",colorsarray[2])
+              }else if(msg <= bordersarray[3]){
+                $(valueTag).css("color",colorsarray[3])
+              }else{
+                $(valueTag).css("color",colorsarray[4])
+              }
             }
             that.setState({value: msg, status: "running"});
             socket.on('disconnect', function(){
