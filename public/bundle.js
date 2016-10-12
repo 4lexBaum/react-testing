@@ -15,17 +15,20 @@ var _Dashboard = require('./src/Modules/Dashboard');
 
 var _TestModule = require('./src/Modules/TestModule');
 
+var _MachineOverview = require('./src/Modules/MachineOverview');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRouter.Router,
   { history: _reactRouter.hashHistory },
   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Dashboard.Dashboard }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/test', component: _TestModule.TestModule })
+  _react2.default.createElement(_reactRouter.Route, { path: '/test', component: _TestModule.TestModule }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/machine', component: _MachineOverview.MachineOverview })
 ), document.getElementById('main'));
 
 
-},{"./src/Modules/Dashboard":497,"./src/Modules/TestModule":498,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
+},{"./src/Modules/Dashboard":498,"./src/Modules/MachineOverview":499,"./src/Modules/TestModule":500,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":18}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -61957,7 +61960,7 @@ var Header = exports.Header = function (_React$Component) {
           ),
           _react2.default.createElement(
             _reactBootstrap.NavItem,
-            { eventKey: 2, href: '#' },
+            { eventKey: 2, href: '/#/machine' },
             'Machine'
           ),
           _react2.default.createElement(
@@ -61999,6 +62002,115 @@ var Header = exports.Header = function (_React$Component) {
 
 
 },{"react":483,"react-bootstrap":271}],495:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Machine = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Machine = exports.Machine = function (_React$Component) {
+  _inherits(Machine, _React$Component);
+
+  function Machine(props) {
+    _classCallCheck(this, Machine);
+
+    return _possibleConstructorReturn(this, (Machine.__proto__ || Object.getPrototypeOf(Machine)).call(this, props));
+  }
+
+  _createClass(Machine, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { id: "machineBox" },
+        _react2.default.createElement(
+          "div",
+          { id: "areasBox" },
+          _react2.default.createElement(
+            "div",
+            { className: "area" },
+            _react2.default.createElement(
+              "div",
+              { className: "areaNumber" },
+              "1"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "area" },
+            _react2.default.createElement(
+              "div",
+              { className: "areaNumber" },
+              "2"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "area" },
+            _react2.default.createElement(
+              "div",
+              { className: "areaNumber" },
+              "3"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "active area" },
+            _react2.default.createElement(
+              "div",
+              { className: "areaNumber" },
+              "4"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "area" },
+            _react2.default.createElement(
+              "div",
+              { className: "areaNumber" },
+              "5"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement("div", { id: "conveyor" }),
+          _react2.default.createElement(
+            "div",
+            { id: "pillarBox" },
+            _react2.default.createElement("div", { className: "pillarLeft pillar" }),
+            _react2.default.createElement("div", { className: "pillar" }),
+            _react2.default.createElement("div", { className: "pillar" }),
+            _react2.default.createElement("div", { className: "pillar" }),
+            _react2.default.createElement("div", { className: "pillar" }),
+            _react2.default.createElement("div", { className: "pillarRight pillar" })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Machine;
+}(_react2.default.Component);
+
+
+},{"react":483}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62063,7 +62175,7 @@ var Product = exports.Product = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],496:[function(require,module,exports){
+},{"react":483}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62134,7 +62246,7 @@ var Tile = exports.Tile = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { onClick: this.handleClick },
+        { className: 'tile', onClick: this.handleClick },
         _react2.default.createElement('img', { className: 'icon', src: this.props.icon }),
         _react2.default.createElement(
           'p',
@@ -62164,7 +62276,7 @@ var Tile = exports.Tile = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],497:[function(require,module,exports){
+},{"react":483}],498:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62213,7 +62325,7 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         _reactBootstrap.Grid,
-        null,
+        { fluid: 'true' },
         _react2.default.createElement(
           _reactBootstrap.Row,
           { className: 'show-grid' },
@@ -62225,66 +62337,66 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
         ),
         _react2.default.createElement(
           _reactBootstrap.Row,
-          null,
+          { id: 'nonFluid' },
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile2', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile2', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile3', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile3', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile4', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile4', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile5', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile5', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://image.freepik.com/free-icon/pneumatic-road-drill_318-34720.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'drillingTile6', streamId: 'drill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Drilling Temperature', status: 'stopped' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'millingTile6', streamId: 'mill', borders: '150,200,250,300', colors: '#1e90ff,#00bfff,#60B044,#F6C600,#FF0000', icon: 'http://www.freeiconspng.com/uploads/mill-icon-16.png', value: '100', unit: '°C', title: 'Milling Temperature', status: 'stopped' })
           )
         )
       );
@@ -62316,7 +62428,64 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
 */
 
 
-},{"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":495,"../Components/Tile.js":496,"react":483,"react-bootstrap":271}],498:[function(require,module,exports){
+},{"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":496,"../Components/Tile.js":497,"react":483,"react-bootstrap":271}],499:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+        value: true
+});
+exports.MachineOverview = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Machine = require('../Components/Machine.js');
+
+var _Header = require('../Components/Header.js');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MachineOverview = exports.MachineOverview = function (_React$Component) {
+        _inherits(MachineOverview, _React$Component);
+
+        function MachineOverview(props) {
+                _classCallCheck(this, MachineOverview);
+
+                return _possibleConstructorReturn(this, (MachineOverview.__proto__ || Object.getPrototypeOf(MachineOverview)).call(this, props));
+        }
+
+        _createClass(MachineOverview, [{
+                key: 'componentDidMount',
+                value: function componentDidMount() {}
+        }, {
+                key: 'componentWillUnmount',
+                value: function componentWillUnmount() {}
+        }, {
+                key: 'render',
+                value: function render() {
+                        return _react2.default.createElement(
+                                'div',
+                                null,
+                                _react2.default.createElement(_Header.Header, null),
+                                _react2.default.createElement(_Machine.Machine, null)
+                        );
+                }
+        }]);
+
+        return MachineOverview;
+}(_react2.default.Component);
+
+
+},{"../Components/Header.js":494,"../Components/Machine.js":495,"react":483}],500:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62378,7 +62547,7 @@ var TestModule = exports.TestModule = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         _reactBootstrap.Grid,
-        null,
+        { fluid: 'true' },
         _react2.default.createElement(
           _reactBootstrap.Row,
           { className: 'show-grid' },
@@ -62424,4 +62593,4 @@ var TestModule = exports.TestModule = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Charts/barChart.js":489,"../Charts/gaugeChart.js":490,"../Charts/lineChart.js":491,"../Charts/pieChart.js":492,"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":495,"react":483,"react-bootstrap":271}]},{},[1]);
+},{"../Charts/barChart.js":489,"../Charts/gaugeChart.js":490,"../Charts/lineChart.js":491,"../Charts/pieChart.js":492,"../Components/ChartContainer.js":493,"../Components/Header.js":494,"../Components/Product.js":496,"react":483,"react-bootstrap":271}]},{},[1]);

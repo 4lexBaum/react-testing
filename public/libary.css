@@ -1,75 +1,121 @@
-.container-fluid{
-  background-color: #eceaea;
+.container-fluid {
+    background-color: #eceaea;
 }
 
 .col-md-6 {
-    border-radius: 1.5rem;
-    border-color: #eceaea;
-    border-width: 0.75rem;
+    /*border-width: 0.75rem;
     border-style: solid;
-    background-color: white;
+    background-color: transparent;
+    border-color: transparent;*/
+    background-color: rgba(255, 255, 255, 0.9);
+     border-radius: 2rem;
+     border-width: 0.1rem;
+     border-color: #333333;
+     border-style: solid;
 }
 
-#gauge-chart{
-  height: 280px !important;
-  max-height: 280px !important;
+#gauge-chart {
+    height: 320px !important;
+    max-height: 320px !important;
 }
 
-#gauge{
-  height: 334px;
+.tile {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    border-width: 0.1rem;
+    border-color: #333333;
+    border-style: solid;
+    /* background-color: rgb(223, 223, 223); */
 }
-
-
 
 .col-md-3 {
-  border-width: 0.75rem;
-  border-radius: 1.5rem;
-  border-color: #eceaea;
-  border-style: solid;
-  background-color: white;
+    border-width: 0.75rem;
+    border-style: solid;
+    background-color: transparent;
+    border-color: transparent;
 }
 
-.icon{
-  width: 7rem;
-  height: 7rem;
-  margin-left: 2rem;
-  margin-top: 2rem;
+.icon {
+    width: 7rem;
+    height: 7rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
 }
 
-
-.title{
-  font-family: 'Helvetica';
-  color: gray;
-  margin-top: 2rem;
-  margin-left: 1rem;
-  font-size: 3rem;
-  text-align: left;
-  margin-right: 1rem;
-  margin-bottom: -1rem;
+.title {
+    font-family: 'Helvetica';
+    color: #333333;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    font-size: 3rem;
+    text-align: left;
+    margin-right: 1rem;
+    margin-bottom: -1rem;
 }
 
-.value{
-  font-family: 'Helvetica';
-  font-size: 5rem;
-  text-align: right;
-  margin-top: -8rem;
-  margin-right: 1rem;
-  margin-bottom: -1rem;
+.value {
+    font-family: 'Helvetica';
+    font-size: 5rem;
+    text-align: right;
+    margin-top: -8rem;
+    margin-right: 1rem;
+    margin-bottom: -1rem;
 }
 
-.unit{
-  font-family: 'Helvetica';
-  font-size: 3rem;
-  text-align: right;
-  margin-right: 1rem;
-  margin-bottom: -1rem;
+.unit {
+    font-family: 'Helvetica';
+    font-size: 3rem;
+    text-align: right;
+    margin-right: 1rem;
+    margin-bottom: -1rem;
 }
 
-.status{
-  font-family: 'Helvetica';
-  margin-top: 2rem;
-  text-align: right;
-  color: green;
-  font-size: 2rem;
-  margin-right: 1rem;
+.status {
+    font-family: 'Helvetica';
+    margin-top: 2rem;
+    text-align: right;
+    color: green;
+    font-size: 2rem;
+    margin-right: 1rem;
 }
+
+.container-fluid{
+  background: transparent;
+}
+
+#nonFluid{
+  margin: auto;
+  width: 1200px;
+}
+
+/*#gauge-chart{
+   background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    border-width: 0.1rem;
+    border-color: #333333;
+    border-style: solid;
+}
+
+#test-chart{
+   background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    border-width: 0.1rem;
+    border-color: #333333;
+    border-style: solid;
+}
+
+#bar-chart{
+   background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    border-width: 0.1rem;
+    border-color: #333333;
+    border-style: solid;
+}
+
+#pie-chart{
+  background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    border-width: 0.1rem;
+    border-color: #333333;
+    border-style: solid;
+}*/

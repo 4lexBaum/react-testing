@@ -30,7 +30,7 @@ export class Header extends React.Component{
        </Navbar.Header>
          <Nav pullLeft stacked>
           <NavItem eventKey={1} href="/#/">Dashboard</NavItem>
-           <NavItem eventKey={2} href="#">Machine</NavItem>
+           <NavItem eventKey={2} href="/#/machine">Machine</NavItem>
            <NavItem eventKey={3} href="#">Statistics</NavItem>
          </Nav>
          <Nav pullRight>

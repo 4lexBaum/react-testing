@@ -39,7 +39,7 @@ export class Tile extends React.Component {
 
         render() {
           return (
-            <div onClick={this.handleClick}>
+            <div className="tile" onClick={this.handleClick}>
               <img className="icon" src={this.props.icon}></img>
               <p className="value" id={this.props.containerId}>{this.state.value}</p>
               <p className="unit">{this.props.unit}</p>
