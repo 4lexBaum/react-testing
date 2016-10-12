@@ -18,10 +18,6 @@ export class Dashboard extends React.Component {
 
         constructor(props) {
             super(props);
-            this._products = [
-              { title: 'Basketball', price: '10€'},
-              { price: '8€'}
-            ];
         }
 
         render() {
