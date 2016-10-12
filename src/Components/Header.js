@@ -22,18 +22,18 @@ export class Header extends React.Component{
 
   render(){
     return(
-      <Navbar>
+      <Navbar staticTop="true" fluid="true">
+       <img id="logo" src="./browm_logo2.png"></img>
        <Navbar.Header>
          <Navbar.Brand>
-           <a href="/">Production Analyzing</a>
+           <a href="/">BROWM Industries</a>
          </Navbar.Brand>
        </Navbar.Header>
-         <Nav pullLeft stacked>
+         <Nav pullRight>
           <NavItem eventKey={1} href="/#/">Dashboard</NavItem>
            <NavItem eventKey={2} href="/#/machine">Machine</NavItem>
            <NavItem eventKey={3} href="#">Statistics</NavItem>
-         </Nav>
-         <Nav pullRight>
+           <NavItem>|</NavItem>
            <NavDropdown eventKey={4} title="More" id="basic-nav-dropdown">
              <MenuItem eventKey={4.1}>Team</MenuItem>
              <MenuItem eventKey={4.2}>Technologies</MenuItem>
