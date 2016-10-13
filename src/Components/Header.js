@@ -26,7 +26,7 @@ export class Header extends React.Component{
        <img id="logo" src="./browm_logo2.png"></img>
        <Navbar.Header>
          <Navbar.Brand>
-           <a href="/">BROWM Industries</a>
+           <a href="/">BROWM INDUSTRIES®</a>
          </Navbar.Brand>
        </Navbar.Header>
          <Nav pullRight>

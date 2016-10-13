@@ -31,7 +31,7 @@ export class TestModule extends React.Component {
         }
 
         componentWillUnmount(){
-          socket.removeAllListeners();
+          //socket.removeAllListeners();
         }
 
         render() {
