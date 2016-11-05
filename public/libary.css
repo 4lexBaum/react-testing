@@ -93,6 +93,39 @@
   height: 40px;
 }
 
+.machineData{
+  margin: auto;
+  padding-bottom: 20rem;
+  width: 900px;
+}
+
+.machineValue{
+  max-height: 260px;
+  position: relative;
+  width: 40%;
+  float: left;
+}
+
+#rightValue{
+  float: right;
+}
+
+.speedTitle{
+  font-family: 'Helvetica';
+  color: #333333;
+  margin-top: 2rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.heatTitle{
+  font-family: 'Helvetica';
+  color: #333333;
+  margin-top: 2rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
 /*#gauge-chart{
    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 2rem;

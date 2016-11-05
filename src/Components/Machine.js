@@ -9,19 +9,25 @@ export class Machine extends React.Component {
       return (
         <div id="machineBox">
           <div id="areasBox">
-            <div className="area">
+            <div id="area1" className="area">
               <div className="areaNumber">1</div>
             </div>
-            <div className="area">
+            <div id="area2" className="area">
               <div className="areaNumber">2</div>
             </div>
-            <div className="area">
+            <div id="area3" className="area">
               <div className="areaNumber">3</div>
+              <div className="iconContainer">
+                <img className="iconArea" src="http://www.freeiconspng.com/uploads/mill-icon-16.png"></img>
+              </div>
             </div>
-            <div className="active area">
+            <div id="area4" className="area">
               <div className="areaNumber">4</div>
+              <div className="iconContainer">
+                <img className="iconArea" src="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png"></img>
+              </div>
             </div>
-            <div className="area">
+            <div id="area5" className="area">
               <div className="areaNumber">5</div>
             </div>
           </div>

@@ -48,8 +48,175 @@ io.on('connection', function (socket) {
         }, timeout)
     }
     send();
+
+    var arrayInd = 0;
+    setInterval(function(){
+      socket.emit("machine", exampleData[arrayInd]);
+      arrayInd++;
+      if(arrayInd == 31){
+        arrayInd = 0;
+      }
+    }, 1000)
 });
 
 http.listen(3001, function () {
     console.log('listening on *:3001');
 });
+
+var exampleData = [{
+    "value": false,
+    "status": "GOOD",
+    "itemName": "L1",
+    "timestamp": 1478200539573
+}, {
+    "value": true,
+    "status": "GOOD",
+    "itemName": "L1",
+    "timestamp": 1478200570673
+}, {
+    "value": false,
+    "status": "GOOD",
+    "itemName": "L2",
+    "timestamp": 1478200640703
+}, {
+    "value": true,
+    "status": "GOOD",
+    "itemName": "L2",
+    "timestamp": 1478200670813
+}, {
+    "value": false,
+    "status": "GOOD",
+    "itemName": "L3",
+    "timestamp": 1478200740873
+}, {
+    "value": true,
+    "status": "GOOD",
+    "itemName": "MILLING",
+    "timestamp": 1478200770933
+}, {
+    "value": 12480,
+    "status": "GOOD",
+    "itemName": "MILLING_SPEED",
+    "timestamp": 1478200780983
+}, {
+    "value": 156.7,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478200831053
+}, {
+    "value": 180.20499999999998,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478200881113
+}, {
+    "value": 15000,
+    "status": "GOOD",
+    "itemName": "MILLING_SPEED",
+    "timestamp": 1478200951183
+}, {
+    "value": 235.04999999999998,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478200961233
+}, {
+    "value": 219.37999999999997,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478201031293
+}, {
+    "value": 0,
+    "status": "GOOD",
+    "itemName": "MILLING_SPEED",
+    "timestamp": 1478201091333
+}, {
+    "value": 130.98,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478201101383
+}, {
+    "value": 39.769999999999996,
+    "status": "GOOD",
+    "itemName": "MILLING_HEAT",
+    "timestamp": 1478201131443
+}, {
+    "value": false,
+    "status": "GOOD",
+    "itemName": "MILLING",
+    "timestamp": 1478201141493
+}, {
+    "value": true,
+    "status": "GOOD",
+    "itemName": "L3",
+    "timestamp": 1478201181543
+}, {
+    "value": false,
+    "status": "BAD",
+    "itemName": "L4",
+    "timestamp": 1478201231653
+}, {
+    "value": true,
+    "status": "GOOD",
+    "itemName": "DRILLING",
+    "timestamp": 1478201271753
+}, {
+    "value": 15500,
+    "status": "GOOD",
+    "itemName": "DRILLING_SPEED",
+    "timestamp": 1478201281773
+}, {
+    "value": 198.98,
+    "status": "GOOD",
+    "itemName": "DRILLING_HEAT",
+    "timestamp": 1478201331843
+}, {
+    "value": 228.82699999999997,
+    "status": "GOOD",
+    "itemName": "DRILLING_HEAT",
+    "timestamp": 1478201381903
+}, {
+    "value": 18500,
+    "status": "GOOD",
+    "itemName": "DRILLING_SPEED",
+    "timestamp": 1478201451913
+}, {
+    "value": 298.46999999999997,
+    "status": "GOOD",
+    "itemName": "DRILLING_HEAT",
+    "timestamp": 1478201461973
+}, {
+    "value": 278.57199999999995,
+    "status": "GOOD",
+    "itemName": "DRILLING_HEAT",
+    "timestamp": 1478201532053
+}, {
+    "value": 0,
+    "status": "GOOD",
+    "itemName": "DRILLING_SPEED",
+    "timestamp": 1478201582153
+}, {
+    "value": 120.0,
+    "status": "GOOD",
+    "itemName": "DRILLING_HEAT",
+    "timestamp": 1478201592173
+}, {
+    "value": false,
+    "status": "GOOD",
+    "itemName": "DRILLING",
+    "timestamp": 1478201602223
+}, {
+    "value": true,
+    "status": "BAD",
+    "itemName": "L4",
+    "timestamp": 1478201632273
+}, {
+    "value": false,
+    "status": "GOOD",
+    "itemName": "L5",
+    "timestamp": 1478201732403
+},
+{
+    "value": true,
+    "status": "GOOD",
+    "itemName": "L5",
+    "timestamp": 1478201732409
+}]

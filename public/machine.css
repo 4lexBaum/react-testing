@@ -1,6 +1,6 @@
 
 #machineBox{
-  top: 22rem;
+  top: 12rem;
   border: 2px solid transparent;
   width: 1100px;
   height: 500px;
@@ -21,8 +21,12 @@
   background-color: rgba(255,255,255,0.8);
 }
 
-.active{
+.BAD{
   background-color: rgba(255,0,0,0.4);
+}
+
+.GOOD{
+  background-color: rgba(0, 255, 7, 0.4);
 }
 
 #conveyor{
@@ -86,4 +90,15 @@
 
 .pillarRight{
   margin-right: 40px;
+}
+
+.iconContainer{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.iconArea{
+  width: 70%;
+  margin-top: 10rem;
 }
