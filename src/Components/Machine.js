@@ -18,13 +18,13 @@ export class Machine extends React.Component {
             <div id="area3" className="area">
               <div className="areaNumber">3</div>
               <div className="iconContainer">
-                <img className="iconArea" src="http://www.freeiconspng.com/uploads/mill-icon-16.png"></img>
+                <img id="millingIcon" className="iconArea" src="http://www.freeiconspng.com/uploads/mill-icon-16.png"></img>
               </div>
             </div>
             <div id="area4" className="area">
               <div className="areaNumber">4</div>
               <div className="iconContainer">
-                <img className="iconArea" src="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png"></img>
+                <img id="drillingIcon" className="iconArea" src="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png"></img>
               </div>
             </div>
             <div id="area5" className="area">

@@ -11,6 +11,8 @@ export class MachineOverview extends React.Component {
         }
 
         componentDidMount(){
+          $('#millingIcon').jrumble();
+          $('#drillingIcon').jrumble();
           socket.on("machine", function(msg){
             switch (msg.itemName) {
               case "L1":
@@ -19,7 +21,6 @@ export class MachineOverview extends React.Component {
                 } else{
                   $("#area1").addClass(msg.status);
                 }
-                console.log("L1 " + msg.itemName);
                 break;
               case "L2":
                 if(msg.value){
@@ -27,7 +28,6 @@ export class MachineOverview extends React.Component {
                 } else{
                   $("#area2").addClass(msg.status);
                 }
-                console.log("L2 " + msg.itemName);
                 break;
               case "L3":
                 $(".heatTitle").text("Milling Heat");
@@ -37,7 +37,6 @@ export class MachineOverview extends React.Component {
                 } else{
                   $("#area3").addClass(msg.status);
                 }
-                console.log("L3 " + msg.itemName);
                 break;
               case "L4":
                 $(".heatTitle").text("Drilling Heat");
@@ -47,7 +46,6 @@ export class MachineOverview extends React.Component {
                 } else{
                   $("#area4").addClass(msg.status);
                 }
-                console.log("L4 " + msg.itemName);
                 break;
               case "L5":
                 if(msg.value){
@@ -55,10 +53,22 @@ export class MachineOverview extends React.Component {
                 } else{
                   $("#area5").addClass(msg.status);
                 }
-                console.log("L5 " + msg.itemName);
+                break;
+              case "MILLING":
+                if(msg.value){
+                  $('#millingIcon').trigger('startRumble');
+                } else{
+                  $('#millingIcon').trigger('stopRumble');
+                }
+                break;
+              case "DRILLING":
+                if(msg.value){
+                  $('#drillingIcon').trigger('startRumble');
+                } else{
+                  $('#drillingIcon').trigger('stopRumble');
+                }
                 break;
               default:
-                console.log("no light barrier " + msg.itemName);
             }
           })
         }
