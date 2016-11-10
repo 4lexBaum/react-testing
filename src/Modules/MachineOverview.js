@@ -3,6 +3,7 @@ import React from 'react';
 import { Machine } from '../Components/Machine.js';
 import { MachineData } from '../Components/MachineData.js';
 import { Header } from '../Components/Header.js';
+import { ERPData } from '../Components/ERPData.js';
 
 export class MachineOverview extends React.Component {
 
@@ -80,6 +81,7 @@ export class MachineOverview extends React.Component {
             return (
               <div>
                 <Header></Header>
+                <ERPData></ERPData>
                 <MachineData></MachineData>
                 <Machine></Machine>
               </div>
