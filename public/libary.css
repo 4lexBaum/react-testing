@@ -96,10 +96,11 @@
 .machineData{
   margin: auto;
   padding-bottom: 20rem;
-  width: 900px;
+  width: 1000px;
 }
 
 .machineValue{
+  visibility: hidden;
   max-height: 260px;
   position: relative;
   width: 40%;
@@ -118,12 +119,30 @@
   text-align: center;
 }
 
+.machineTitle{
+  font-family: 'Helvetica';
+  color: #333333;
+  margin-top: 2rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
 .heatTitle{
   font-family: 'Helvetica';
   color: #333333;
   margin-top: 2rem;
   font-size: 3rem;
   text-align: center;
+}
+
+.machineIconBox{
+  visibility: hidden;
+  width: 16%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  height: 234.5px;
+  position: relative;
+  float: left;
 }
 
 /*#gauge-chart{

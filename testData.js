@@ -51,7 +51,23 @@ io.on('connection', function (socket) {
 
     var arrayInd = 0;
     setInterval(function(){
-      socket.emit("machine", exampleData[arrayInd]);
+      var item = exampleData[arrayInd];
+      if(item.itemName == "MILLING_SPEED"){
+        socket.emit("MILLING_SPEED", (item.value/1000).toFixed(1));
+      }
+      if(item.itemName == "MILLING_HEAT"){
+        socket.emit("MILLING_HEAT", Math.floor(item.value));
+      }
+      if(item.itemName == "DRILLING_SPEED"){
+        socket.emit("DRILLING_SPEED", (item.value/1000).toFixed(1));
+      }
+      if(item.itemName == "DRILLING_HEAT"){
+        socket.emit("DRILLING_HEAT", Math.floor(item.value));
+      }
+      if(item.itemName.startsWith("L")){
+        socket.emit("LIGHT_BARRIER", item.itemName);
+      }
+      socket.emit("machine", item);
       arrayInd++;
       if(arrayInd == 31){
         arrayInd = 0;
