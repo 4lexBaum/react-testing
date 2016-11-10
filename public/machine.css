@@ -126,3 +126,12 @@
   margin-left: 20px;
   margin-top: 20rem;
 }
+
+.product{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 7rem;
+  visibility: hidden;
+}

@@ -13,6 +13,7 @@ export class Machine extends React.Component {
           <div id="areasBox">
             <div id="area1" className="area">
               <div className="areaNumber">1</div>
+              <img className="product" src="./icon_product.png"></img>
               <LightBarrier lightBarrierId="lb1"></LightBarrier>
             </div>
             <div id="area2" className="area">
