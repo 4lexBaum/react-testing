@@ -65,11 +65,66 @@ io.on('connection', function (socket) {
         arrayInd2 = 0;
       }
     }, 32000);
+    var arrayInd3 = 0;
+    setInterval(function(){
+      socket.emit("customer-quality", customerQuality[arrayInd3]);
+      arrayInd3++
+      if(arrayInd3 == 3) {
+        arrayInd3 = 0;
+      }
+    }, 5000);
 });
 
 http.listen(3001, function () {
     console.log('listening on *:3001');
 });
+
+var customerQuality = [{
+  "customer1_ok": 3,
+  "customer1_nok": 1,
+  "customer2_ok": 3,
+  "customer2_nok": 1,
+  "customer3_ok": 3,
+  "customer3_nok": 1,
+  "customer4_ok": 3,
+  "customer4_nok": 1,
+  "customer5_ok": 3,
+  "customer5_nok": 1,
+  "customer6_ok": 3,
+  "customer6_nok": 1,
+  "customer7_ok": 3,
+  "customer7_nok": 1
+}, {
+  "customer1_ok": 4,
+  "customer1_nok": 2,
+  "customer2_ok": 4,
+  "customer2_nok": 2,
+  "customer3_ok": 4,
+  "customer3_nok": 2,
+  "customer4_ok": 4,
+  "customer4_nok": 2,
+  "customer5_ok": 4,
+  "customer5_nok": 2,
+  "customer6_ok": 4,
+  "customer6_nok": 2,
+  "customer7_ok": 4,
+  "customer7_nok": 2
+}, {
+  "customer1_ok": 5,
+  "customer1_nok": 1,
+  "customer2_ok": 5,
+  "customer2_nok": 1,
+  "customer3_ok": 5,
+  "customer3_nok": 1,
+  "customer4_ok": 5,
+  "customer4_nok": 1,
+  "customer5_ok": 5,
+  "customer5_nok": 1,
+  "customer6_ok": 5,
+  "customer6_nok": 1,
+  "customer7_ok": 5,
+  "customer7_nok": 1
+}]
 
 var erpData = [{
   "customerNumber": 4714,

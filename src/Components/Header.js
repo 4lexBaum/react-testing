@@ -32,7 +32,7 @@ export class Header extends React.Component{
          <Nav pullRight>
           <NavItem eventKey={1} href="/#/">Dashboard</NavItem>
            <NavItem eventKey={2} href="/#/machine">Machine</NavItem>
-           <NavItem eventKey={3} href="#">Statistics</NavItem>
+           <NavItem eventKey={3} href="/#/statistics">Statistics</NavItem>
            <NavItem>|</NavItem>
            <NavDropdown eventKey={4} title="More" id="basic-nav-dropdown">
              <MenuItem eventKey={4.1}>Team</MenuItem>
