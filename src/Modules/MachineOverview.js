@@ -15,7 +15,7 @@ export class MachineOverview extends React.Component {
           $('#machineIcon').jrumble();
           var machineIcon = $("#machineIcon");
           var product = $(".product");
-          var areaWidth = $(".area").width();
+          var areaWidth = $(".area").width() + 4;
           var move = '+=' + areaWidth + 'px';
           var moveBack = '-=' + (4 * areaWidth) + 'px';
           socket.on("machine", function(msg){
@@ -80,7 +80,7 @@ export class MachineOverview extends React.Component {
                   $("#lb5").css({opacity: 0, visibility: "visible"}).animate({opacity: 1.0}, 1000);
                   $("#area5").removeClass("GOOD BAD");
                   product.css({opacity: 1.0, visibility: "visible"}).animate({opacity: 0}, 500);
-                  product.animate({marginLeft: moveBack}, 0);
+                  product.css('marginLeft', '4%');
                 } else{
                   $("#lb5").css({opacity: 1.0, visibility: "visible"}).animate({opacity: 0}, 1000);
                   $("#area5").addClass(msg.status);

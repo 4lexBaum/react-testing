@@ -62802,7 +62802,7 @@ var MachineOverview = exports.MachineOverview = function (_React$Component) {
       $('#machineIcon').jrumble();
       var machineIcon = $("#machineIcon");
       var product = $(".product");
-      var areaWidth = $(".area").width();
+      var areaWidth = $(".area").width() + 4;
       var move = '+=' + areaWidth + 'px';
       var moveBack = '-=' + 4 * areaWidth + 'px';
       socket.on("machine", function (msg) {
