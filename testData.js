@@ -73,11 +73,37 @@ io.on('connection', function (socket) {
         arrayInd = 0;
       }
     }, 1000)
+
+    var arrayInd2 = 0;
+    setInterval(function(){
+      socket.emit("erp", erpData[arrayInd2]);
+      arrayInd2++
+      if(arrayInd2 == 3) {
+        arrayInd2 = 0;
+      }
+    }, 32000);
 });
 
 http.listen(3001, function () {
     console.log('listening on *:3001');
 });
+
+var erpData = [{
+  "customerNumber": 4714,
+  "materialNumber": 7432,
+  "orderNumber": "4leb3344-1159-4ab3-86a9-f36b42fbd14d",
+  "timeStamp": "2016-11-10T11:27:52.472Z"
+}, {
+  "customerNumber": 5896,
+  "materialNumber": 4756,
+  "orderNumber": "545sdf54-4744-4ae9-87d5-4adf585df75d",
+  "timeStamp": "2016-11-10T11:32:22.578Z"
+}, {
+  "customerNumber": 2165,
+  "materialNumber": 6985,
+  "orderNumber": "547ddf7s-5572-55ee-874d-574d5d7d57d5",
+  "timeStamp": "2016-11-10T12:57:32.741Z"
+}]
 
 var exampleData = [{
     "value": false,
