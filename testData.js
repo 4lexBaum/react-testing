@@ -51,24 +51,42 @@ io.on('connection', function (socket) {
 
     var arrayInd = 0;
     setInterval(function(){
-      socket.emit("machine", exampleData[arrayInd]);
+      var item = exampleData[arrayInd];
+      if(item.itemName == "MILLING_SPEED"){
+        socket.emit("MILLING_SPEED", (item.value/1000).toFixed(1));
+      }
+      if(item.itemName == "MILLING_HEAT"){
+        socket.emit("MILLING_HEAT", Math.floor(item.value));
+      }
+      if(item.itemName == "DRILLING_SPEED"){
+        socket.emit("DRILLING_SPEED", (item.value/1000).toFixed(1));
+      }
+      if(item.itemName == "DRILLING_HEAT"){
+        socket.emit("DRILLING_HEAT", Math.floor(item.value));
+      }
+      if(item.itemName.startsWith("L")){
+        socket.emit("LIGHT_BARRIER", item.itemName);
+      }
+      socket.emit("machine", item);
       arrayInd++;
       if(arrayInd == 31){
         arrayInd = 0;
       }
-    }, 1000);
+    }, 1000)
+
     var arrayInd2 = 0;
     setInterval(function(){
       socket.emit("erp", erpData[arrayInd2]);
-      arrayInd2++
+      arrayInd2++;
       if(arrayInd2 == 3) {
         arrayInd2 = 0;
       }
     }, 32000);
+
     var arrayInd3 = 0;
     setInterval(function(){
-      socket.emit("customer-quality", customerQuality[arrayInd3]);
-      arrayInd3++
+      socket.emit("QualityCustomer", customerData[arrayInd3]);
+      arrayInd3++;
       if(arrayInd3 == 3) {
         arrayInd3 = 0;
       }
@@ -79,52 +97,39 @@ http.listen(3001, function () {
     console.log('listening on *:3001');
 });
 
-var customerQuality = [{
-  "customer1_ok": 3,
-  "customer1_nok": 1,
-  "customer2_ok": 3,
-  "customer2_nok": 1,
-  "customer3_ok": 3,
-  "customer3_nok": 1,
-  "customer4_ok": 3,
-  "customer4_nok": 1,
-  "customer5_ok": 3,
-  "customer5_nok": 1,
-  "customer6_ok": 3,
-  "customer6_nok": 1,
-  "customer7_ok": 3,
-  "customer7_nok": 1
-}, {
-  "customer1_ok": 4,
-  "customer1_nok": 2,
-  "customer2_ok": 4,
-  "customer2_nok": 2,
-  "customer3_ok": 4,
-  "customer3_nok": 2,
-  "customer4_ok": 4,
-  "customer4_nok": 2,
-  "customer5_ok": 4,
-  "customer5_nok": 2,
-  "customer6_ok": 4,
-  "customer6_nok": 2,
-  "customer7_ok": 4,
-  "customer7_nok": 2
-}, {
-  "customer1_ok": 5,
-  "customer1_nok": 1,
-  "customer2_ok": 5,
-  "customer2_nok": 1,
-  "customer3_ok": 5,
-  "customer3_nok": 1,
-  "customer4_ok": 5,
-  "customer4_nok": 1,
-  "customer5_ok": 5,
-  "customer5_nok": 1,
-  "customer6_ok": 5,
-  "customer6_nok": 1,
-  "customer7_ok": 5,
-  "customer7_nok": 1
-}]
+var customerData = [
+  {
+  	4712: 9,
+  	4717: 8,
+  	4716: 12,
+  	4713: 3,
+  	4714: 7,
+  	4711: 11,
+  	4715: 10,
+  	4718: 17
+  },
+  {
+  	4712: 9,
+  	4717: 11,
+  	4716: 12,
+  	4713: 13,
+  	4714: 14,
+  	4711: 11,
+  	4715: 13,
+  	4718: 17
+  },
+  {
+  	4712: 15,
+  	4717: 11,
+  	4716: 13,
+  	4713: 6,
+  	4714: 4,
+  	4711: 12,
+  	4715: 11,
+  	4718: 16
+  }
+];
+
 
 var erpData = [{
   "customerNumber": 4714,

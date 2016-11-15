@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Header } from '../Components/Header.js';
 
-import { QualityData } from '../Components/QualityData.js';
+import { QualityData } from '../Components/CustomerQuality.js';
+
+import { ChartContainer } from '../Components/ChartContainer.js';
 
 export class TestModule extends React.Component {
 
@@ -21,7 +23,9 @@ export class TestModule extends React.Component {
             return (
               <div>
                 <Header></Header>
-                <QualityData></QualityData>
+                <div className="tile">
+                  <ChartContainer containerId="customer-quality-chart" bindTo="#customer-quality-chart" analysisName="Customer Quality" socketName="QualityCustomer"></ChartContainer>
+                </div>
               </div>
             )
         }
