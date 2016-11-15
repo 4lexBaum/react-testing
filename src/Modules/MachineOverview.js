@@ -4,6 +4,7 @@ import { Machine } from '../Components/Machine.js';
 import { MachineData } from '../Components/MachineData.js';
 import { Header } from '../Components/Header.js';
 import { ERPData } from '../Components/ERPData.js';
+import { SpectralData } from '../Components/SpectralData.js';
 
 export class MachineOverview extends React.Component {
 
@@ -116,7 +117,7 @@ export class MachineOverview extends React.Component {
                 <div className="machineBox">
                   <ERPData></ERPData>
                   <Machine></Machine>
-                  <ERPData></ERPData>
+                  <SpectralData></SpectralData>
                 </div>
               </div>
 

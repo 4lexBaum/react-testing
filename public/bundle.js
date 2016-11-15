@@ -34,7 +34,7 @@ _reactDom2.default.render(_react2.default.createElement(
 ), document.getElementById('main'));
 
 
-},{"./src/Modules/Customer":504,"./src/Modules/Dashboard":505,"./src/Modules/MachineOverview":506,"./src/Modules/MachineStat":507,"./src/Modules/Material":508,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
+},{"./src/Modules/Customer":505,"./src/Modules/Dashboard":506,"./src/Modules/MachineOverview":507,"./src/Modules/MachineStat":508,"./src/Modules/Material":509,"react":483,"react-dom":282,"react-router":332}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":19}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -62604,6 +62604,128 @@ var Product = exports.Product = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.SpectralData = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SpectralData = exports.SpectralData = function (_React$Component) {
+  _inherits(SpectralData, _React$Component);
+
+  function SpectralData(props) {
+    _classCallCheck(this, SpectralData);
+
+    var _this = _possibleConstructorReturn(this, (SpectralData.__proto__ || Object.getPrototypeOf(SpectralData)).call(this, props));
+
+    _this.state = { overallStatus: "OK", em1: "n.A.", a1: "n.A.", b1: "n.A." };
+    return _this;
+  }
+
+  _createClass(SpectralData, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var that = this;
+      socket.on("manufacturingData", function (msg) {
+        var data = msg.analysisData;
+        var overallStatus = data.overallStatus;
+        var em1 = data.em1.toFixed(2);
+        var a1 = data.a1.toFixed(2);
+        var b1 = data.b1.toFixed(2);
+        that.setState({ overallStatus: overallStatus, em1: em1, a1: a1, b1: b1 });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "erpContainer" },
+        _react2.default.createElement(
+          "p",
+          { className: "erptitle" },
+          "Spectral Data"
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "erpcontent" },
+          _react2.default.createElement(
+            "p",
+            { className: "erpcontenttitle" },
+            "Overall Status"
+          ),
+          _react2.default.createElement(
+            "p",
+            { className: "erpdata" },
+            this.state.overallStatus
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "erpcontent" },
+          _react2.default.createElement(
+            "p",
+            { className: "erpcontenttitle" },
+            "em1"
+          ),
+          _react2.default.createElement(
+            "p",
+            { className: "erpdata" },
+            this.state.em1
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "erpcontent" },
+          _react2.default.createElement(
+            "p",
+            { className: "erpcontenttitle" },
+            "a1"
+          ),
+          _react2.default.createElement(
+            "p",
+            { className: "erpdata" },
+            this.state.a1
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "erpcontent" },
+          _react2.default.createElement(
+            "p",
+            { className: "erpcontenttitle" },
+            "b1"
+          ),
+          _react2.default.createElement(
+            "p",
+            { className: "erpdata" },
+            this.state.b1
+          )
+        )
+      );
+    }
+  }]);
+
+  return SpectralData;
+}(_react2.default.Component);
+
+
+},{"react":483}],504:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.Tile = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -62709,7 +62831,7 @@ var Tile = exports.Tile = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":483}],504:[function(require,module,exports){
+},{"react":483}],505:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62787,7 +62909,7 @@ var Customer = exports.Customer = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"react":483}],505:[function(require,module,exports){
+},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"react":483}],506:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62916,7 +63038,7 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
 */
 
 
-},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"../Components/Product.js":502,"../Components/Tile.js":503,"react":483,"react-bootstrap":271}],506:[function(require,module,exports){
+},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"../Components/Product.js":502,"../Components/Tile.js":504,"react":483,"react-bootstrap":271}],507:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62937,6 +63059,8 @@ var _MachineData = require('../Components/MachineData.js');
 var _Header = require('../Components/Header.js');
 
 var _ERPData = require('../Components/ERPData.js');
+
+var _SpectralData = require('../Components/SpectralData.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63066,7 +63190,7 @@ var MachineOverview = exports.MachineOverview = function (_React$Component) {
           { className: 'machineBox' },
           _react2.default.createElement(_ERPData.ERPData, null),
           _react2.default.createElement(_Machine.Machine, null),
-          _react2.default.createElement(_ERPData.ERPData, null)
+          _react2.default.createElement(_SpectralData.SpectralData, null)
         )
       );
     }
@@ -63076,7 +63200,7 @@ var MachineOverview = exports.MachineOverview = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/ERPData.js":497,"../Components/Header.js":498,"../Components/Machine.js":500,"../Components/MachineData.js":501,"react":483}],507:[function(require,module,exports){
+},{"../Components/ERPData.js":497,"../Components/Header.js":498,"../Components/Machine.js":500,"../Components/MachineData.js":501,"../Components/SpectralData.js":503,"react":483}],508:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -63176,7 +63300,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"../Components/Product.js":502,"react":483}],508:[function(require,module,exports){
+},{"../Components/ChartContainer.js":496,"../Components/Header.js":498,"../Components/Product.js":502,"react":483}],509:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
