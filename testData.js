@@ -77,16 +77,94 @@ io.on('connection', function (socket) {
     var arrayInd2 = 0;
     setInterval(function(){
       socket.emit("erp", erpData[arrayInd2]);
-      arrayInd2++
+      arrayInd2++;
       if(arrayInd2 == 3) {
         arrayInd2 = 0;
       }
     }, 32000);
+
+    var arrayInd3 = 0;
+    setInterval(function(){
+      socket.emit("CustomerOrderAmount", customerData[arrayInd3]);
+      socket.emit("QualityCustomer", qualityData[arrayInd3]);
+      socket.emit("MaterialMillingHeat", qualityData[arrayInd3]);
+      socket.emit("MaterialMillingSpeed", qualityData[arrayInd3]);
+      socket.emit("MaterialDrillingHeat", qualityData[arrayInd3]);
+      socket.emit("MaterialDrillingSpeed", qualityData[arrayInd3]);
+      socket.emit("MaterialProducedAmount", qualityData[arrayInd3]);
+      socket.emit("MaterialDuration", qualityData[arrayInd3]);
+      socket.emit("QualityMaterial", qualityData[arrayInd3]);
+      arrayInd3++;
+      if(arrayInd3 == 3) {
+        arrayInd3 = 0;
+      }
+    }, 5000);
 });
 
 http.listen(3001, function () {
     console.log('listening on *:3001');
 });
+
+var customerData = [
+  {
+  	4712: 9,
+  	4717: 8,
+  	4716: 12,
+  	4713: 3,
+  	4714: 7,
+  	4711: 11,
+  	4715: 10,
+  	4718: 17
+  },
+  {
+  	4712: 9,
+  	4717: 11,
+  	4716: 12,
+  	4713: 13,
+  	4711: 11,
+  	4715: 13,
+  	4718: 17
+  },
+  {
+  	4712: 15,
+  	4717: 11,
+  	4716: 13,
+  	4713: 6,
+  	4714: 4,
+  	4718: 16
+  }
+];
+
+var qualityData = [
+  {
+  	4712: 19,
+  	4717: 2,
+  	4716: 12,
+  	4713: 3,
+  	4714: 17,
+  	4711: 1,
+  	4715: 10,
+  	4718: 17
+  },
+  {
+  	4712: 9,
+  	4717: 12,
+  	4716: 14,
+  	4713: 15,
+  	4711: 9,
+  	4715: 3,
+  	4718: 7
+  },
+  {
+  	4712: 5,
+  	4717: 1,
+  	4716: 3,
+  	4713: 8,
+  	4714: 9,
+  	4718: 6
+  }
+];
+
 
 var erpData = [{
   "customerNumber": 4714,
