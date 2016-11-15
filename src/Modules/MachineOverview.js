@@ -23,6 +23,7 @@ export class MachineOverview extends React.Component {
             switch (msg.itemName) {
               case "L1":
                 if(msg.value){
+                  product.css('marginLeft', '4%');
                   $("#lb1").css({opacity: 0, visibility: "visible"}).animate({opacity: 1.0}, 1000);
                   $("#area1").removeClass("GOOD BAD");
                   product.animate({marginLeft: move}, 2000);
@@ -80,8 +81,9 @@ export class MachineOverview extends React.Component {
                 if(msg.value){
                   $("#lb5").css({opacity: 0, visibility: "visible"}).animate({opacity: 1.0}, 1000);
                   $("#area5").removeClass("GOOD BAD");
-                  product.css({opacity: 1.0, visibility: "visible"}).animate({opacity: 0}, 500);
                   product.css('marginLeft', '4%');
+                  product.css('visibility', 'hidden');
+                  product.css('marginLeft', '4% !important');
                 } else{
                   $("#lb5").css({opacity: 1.0, visibility: "visible"}).animate({opacity: 0}, 1000);
                   $("#area5").addClass(msg.status);

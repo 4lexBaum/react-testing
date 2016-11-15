@@ -36,7 +36,7 @@ export class MachineStat extends React.Component {
                   <ChartContainer containerId="material-drilling-heat" bindTo="#material-drilling-heat" analysisName="Material Drilling Heat" socketName="MaterialDrillingHeat"></ChartContainer>
                 </div>
                 <div className="chartTile">
-                  <div className="chartTitle">Material Milling Speed</div>
+                  <div className="chartTitle">Material Drilling Speed</div>
                   <ChartContainer containerId="material-drilling-speed" bindTo="#material-drilling-speed" analysisName="Material Drilling Speed" socketName="MaterialDrillingSpeed"></ChartContainer>
                 </div>
               </div>
