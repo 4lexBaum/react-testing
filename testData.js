@@ -72,7 +72,25 @@ io.on('connection', function (socket) {
       if(arrayInd == 31){
         arrayInd = 0;
       }
-    }, 1000)
+    }, 1000);
+
+    var arrayInd4 = 0;
+    setInterval(function(){
+      socket.emit("OverallQuality", tile1data[arrayInd4]);
+      arrayInd4++;
+      if(arrayInd4 == 3){
+        arrayInd4 = 0;
+      }
+    }, 5000);
+
+    var arrayInd5 = 0;
+    setInterval(function(){
+      socket.emit("OverallOrderAmount", tile2data[arrayInd5]);
+      arrayInd5++;
+      if(arrayInd5 == 3){
+        arrayInd5 = 0;
+      }
+    }, 5000);
 
     var arrayInd2 = 0;
     setInterval(function(){
@@ -104,6 +122,30 @@ io.on('connection', function (socket) {
 http.listen(3001, function () {
     console.log('listening on *:3001');
 });
+
+var tile1data = [
+  {
+    "key": 95
+  },
+  {
+    "key": 99
+  },
+  {
+    "key": 93
+  }
+];
+
+var tile2data = [
+  {
+    "key": 150
+  },
+  {
+    "key": 200
+  },
+  {
+    "key": 250
+  }
+];
 
 var customerData = [
   {
