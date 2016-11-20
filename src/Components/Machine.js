@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { LightBarrier } from '../Components/LightBarrier.js';
+
 export class Machine extends React.Component {
   constructor(props) {
       super(props);
@@ -11,24 +13,24 @@ export class Machine extends React.Component {
           <div id="areasBox">
             <div id="area1" className="area">
               <div className="areaNumber">1</div>
+              <img className="product" src="./icon_product.png"></img>
+              <LightBarrier lightBarrierId="lb1"></LightBarrier>
             </div>
             <div id="area2" className="area">
               <div className="areaNumber">2</div>
+              <LightBarrier lightBarrierId="lb2"></LightBarrier>
             </div>
             <div id="area3" className="area">
               <div className="areaNumber">3</div>
-              <div className="iconContainer">
-                <img id="millingIcon" className="iconArea" src="http://www.freeiconspng.com/uploads/mill-icon-16.png"></img>
-              </div>
+              <LightBarrier lightBarrierId="lb3"></LightBarrier>
             </div>
             <div id="area4" className="area">
               <div className="areaNumber">4</div>
-              <div className="iconContainer">
-                <img id="drillingIcon" className="iconArea" src="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png"></img>
-              </div>
+              <LightBarrier lightBarrierId="lb4"></LightBarrier>
             </div>
             <div id="area5" className="area">
               <div className="areaNumber">5</div>
+              <LightBarrier lightBarrierId="lb5"></LightBarrier>
             </div>
           </div>
 

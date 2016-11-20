@@ -30,40 +30,28 @@ export class Dashboard extends React.Component {
                   </Row>
                   <Row id="nonFluid">
                     <Col md={3}>
-                      <Tile containerId="drillingTile" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile" streamId="DRILLING_SPEED" borders="5, 10, 15, 17.5" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="0" unit="T RPM" title="Drilling Speed" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="millingTile" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile2" streamId="DRILLING_HEAT" borders="50, 100, 150, 200" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="0" unit="°C" title="Drilling Heat" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="drillingTile2" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile" streamId="MILLING_SPEED" borders="5, 10, 15, 17.5" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="0" unit="T RPM" title="Milling Speed" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="millingTile2" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
+                      <Tile containerId="millingTile2" streamId="MILLING_HEAT" borders="50, 100, 150, 200" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="0" unit="°C" title="Milling Heat" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="drillingTile3" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
+                      <Tile containerId="drillingTile3" streamId="LIGHT_BARRIER" borders="" colors="" icon="http://freeflaticons.com/wp-content/uploads/2014/09/placeholder-copy-1411475612k48gn.png" value="0" unit="Barrier" title="Product Location" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="millingTile3" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
+                      <Tile containerId="fake1" streamId="" borders="" colors="" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/183367-200.png" value="94.7" unit="%" title="Quality Material" status="n.A."></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="drillingTile4" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
+                      <Tile containerId="fake2" streamId="" borders="" colors="" icon="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Business%20Businessman.ico" value="98" unit="%" title="Qualtiy Customer" status="n.A."></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="millingTile4" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="drillingTile5" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="millingTile5" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="drillingTile6" streamId="drill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/170362-200.png" value="100" unit="°C" title="Drilling Temperature" status="stopped"></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="millingTile6" streamId="mill" borders="150,200,250,300" colors="#1e90ff,#00bfff,#60B044,#F6C600,#FF0000" icon="http://www.freeiconspng.com/uploads/mill-icon-16.png" value="100" unit="°C" title="Milling Temperature" status="stopped"></Tile>
+                      <Tile containerId="fake3" streamId="" borders="" colors="" icon="http://www.newdesignfile.com/postpic/2015/02/the-legend-of-zelda_233539.png" value="327" unit="QTY" title="Order Amount" status="n.A."></Tile>
                     </Col>
                   </Row>
               </Grid>

@@ -85,7 +85,19 @@ io.on('connection', function (socket) {
 
     var arrayInd3 = 0;
     setInterval(function(){
+<<<<<<< HEAD
       socket.emit("QualityCustomer", customerData[arrayInd3]);
+=======
+      socket.emit("CustomerOrderAmount", customerData[arrayInd3]);
+      socket.emit("QualityCustomer", qualityData[arrayInd3]);
+      socket.emit("MaterialMillingHeat", qualityData[arrayInd3]);
+      socket.emit("MaterialMillingSpeed", qualityData[arrayInd3]);
+      socket.emit("MaterialDrillingHeat", qualityData[arrayInd3]);
+      socket.emit("MaterialDrillingSpeed", qualityData[arrayInd3]);
+      socket.emit("MaterialProducedAmount", qualityData[arrayInd3]);
+      socket.emit("MaterialDuration", qualityData[arrayInd3]);
+      socket.emit("QualityMaterial", qualityData[arrayInd3]);
+>>>>>>> alex
       arrayInd3++;
       if(arrayInd3 == 3) {
         arrayInd3 = 0;
@@ -113,7 +125,10 @@ var customerData = [
   	4717: 11,
   	4716: 12,
   	4713: 13,
+<<<<<<< HEAD
   	4714: 14,
+=======
+>>>>>>> alex
   	4711: 11,
   	4715: 13,
   	4718: 17
@@ -124,12 +139,48 @@ var customerData = [
   	4716: 13,
   	4713: 6,
   	4714: 4,
+<<<<<<< HEAD
   	4711: 12,
   	4715: 11,
+=======
+>>>>>>> alex
   	4718: 16
   }
 ];
 
+<<<<<<< HEAD
+=======
+var qualityData = [
+  {
+  	4712: 19,
+  	4717: 2,
+  	4716: 12,
+  	4713: 3,
+  	4714: 17,
+  	4711: 1,
+  	4715: 10,
+  	4718: 17
+  },
+  {
+  	4712: 9,
+  	4717: 12,
+  	4716: 14,
+  	4713: 15,
+  	4711: 9,
+  	4715: 3,
+  	4718: 7
+  },
+  {
+  	4712: 5,
+  	4717: 1,
+  	4716: 3,
+  	4713: 8,
+  	4714: 9,
+  	4718: 6
+  }
+];
+
+>>>>>>> alex
 
 var erpData = [{
   "customerNumber": 4714,

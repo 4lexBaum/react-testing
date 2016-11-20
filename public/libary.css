@@ -11,8 +11,8 @@
 }
 
 #gauge-chart {
-    height: 320px !important;
-    max-height: 320px !important;
+    height: 270px !important;
+    max-height: 270px !important;
 }
 
 .tile {
@@ -95,14 +95,18 @@
 
 .machineData{
   margin: auto;
-  padding-bottom: 20rem;
-  width: 900px;
+  /* padding-bottom: 20rem; */
+  width: 60%;
+  /* margin-left: 25%; */
+  /* margin-right: 25%; */
+  /* margin-bottom: 11rem; */
 }
 
 .machineValue{
-  max-height: 260px;
-  position: relative;
-  width: 40%;
+  visibility: hidden;
+  /* max-height: 260px; */
+  /* position: relative; */
+  width: 39%;
   float: left;
 }
 
@@ -118,6 +122,14 @@
   text-align: center;
 }
 
+.machineTitle{
+  font-family: 'Helvetica';
+  color: #333333;
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
 .heatTitle{
   font-family: 'Helvetica';
   color: #333333;
@@ -126,6 +138,19 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+.machineIconBox{
+  visibility: hidden;
+  width: 16%;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: 234.5px;
+  position: relative;
+  float: left;
+}
+
+>>>>>>> alex
 .erpContainer{
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 2rem;
@@ -133,8 +158,18 @@
   border-color: #333333;
   border-style: solid;
   position: relative;
+<<<<<<< HEAD
   width:200px;
   height: 350px;
+=======
+  width: 15%;
+  /* height: 90%; */
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 1.5%;
+  /* margin-bottom: 5%; */
+  float: left;
+>>>>>>> alex
 }
 
 .erptitle{
@@ -142,7 +177,11 @@
   color: #333333;
   margin-top: 1rem;
   margin-left: 1rem;
+<<<<<<< HEAD
   font-size: 2rem;
+=======
+  font-size: 2vw;
+>>>>>>> alex
   text-align: left;
   margin-right: 1rem;
   margin-bottom: -1rem;
@@ -156,24 +195,67 @@
   border-color: #333333;
   border-style: solid;
   position: relative;
+<<<<<<< HEAD
   margin-top:1rem;
   margin-bottom:1rem;
   margin-left: 1rem;
   margin-right: 1rem
+=======
+  margin-top: 1.5rem;
+  margin-bottom:1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+>>>>>>> alex
 }
 
 .erpcontenttitle{
   font-family: 'Helvetica';
   color: #333333;
+<<<<<<< HEAD
   font-size: 1.3rem;
+=======
+  font-size: 1.4vw;
+>>>>>>> alex
   text-align: center;
 }
 
 .erpdata{
   font-family: 'Helvetica';
   color: #333333;
+<<<<<<< HEAD
   font-size: 1.3rem;
   text-align: center;
+=======
+  font-size: 1vw;
+  text-align: center;
+}
+
+.machineBox{
+  margin-top: 30rem;
+}
+
+.chartTile{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2.5%;
+  float: left;
+  width: 40%;
+  height: 37rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2rem;
+  border-width: 0.1rem;
+  border-color: #333333;
+  border-style: solid;
+}
+
+.chartTitle{
+  font-family: 'Helvetica';
+  color: #333333;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+>>>>>>> alex
 }
 
 /*#gauge-chart{

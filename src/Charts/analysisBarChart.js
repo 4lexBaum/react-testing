@@ -2,12 +2,20 @@
 
 import c3 from 'c3';
 
+<<<<<<< HEAD
 var chart, data;
+=======
+var data;
+>>>>>>> alex
 //var bindTo = "#"+this.props.bindTo;
 
 module.exports = {
     createChart: function (analysisName, socketName, bindTo) {
+<<<<<<< HEAD
         chart = c3.generate({
+=======
+        var chart = c3.generate({
+>>>>>>> alex
             bindto: bindTo,
             data: {
                 x: 'x',
@@ -17,11 +25,19 @@ module.exports = {
                 ],
                 type: 'bar'
             },
+<<<<<<< HEAD
             //axis: {
             //    x: {
             //        type: 'category'
             //    }
             //}
+=======
+            axis: {
+                x: {
+                    type: 'category'
+                }
+            }
+>>>>>>> alex
         });
         socket.on(socketName, function (msg) {
           var xAxis = ['x'];
