@@ -63060,9 +63060,9 @@ var Material = exports.Material = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'chartTitle' },
-            'Quality Material'
+            'Quality Material Percentage'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'quality-material', bindTo: '#quality-material', analysisName: 'Quality Material', socketName: 'QualityMaterial' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'category', containerId: 'quality-material', bindTo: '#quality-material', analysisName: 'Quality Material Percentage', socketName: 'MaterialQualityPercentage' })
         )
       );
     }
@@ -63070,6 +63070,8 @@ var Material = exports.Material = function (_React$Component) {
 
   return Material;
 }(_react2.default.Component);
+
+//<ChartContainer type="bar" containerId="quality-material" bindTo="#quality-material" analysisName="Quality Material" socketName="QualityMaterial"></ChartContainer>
 
 
 },{"../Charts/barChart.js":496,"../Charts/gaugeChart.js":497,"../Charts/lineChart.js":499,"../Charts/pieChart.js":500,"../Components/ChartContainer.js":502,"../Components/Header.js":504,"../Components/Product.js":508,"react":488,"react-bootstrap":269}]},{},[1]);

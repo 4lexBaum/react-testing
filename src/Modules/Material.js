@@ -47,10 +47,12 @@ export class Material extends React.Component {
                   <ChartContainer type="bar" containerId="material-duration" bindTo="#material-duration" analysisName="Material Duration" socketName="MaterialDuration"></ChartContainer>
                 </div>
                 <div className="chartTile">
-                  <div className="chartTitle">Quality Material</div>
-                  <ChartContainer type="bar" containerId="quality-material" bindTo="#quality-material" analysisName="Quality Material" socketName="QualityMaterial"></ChartContainer>
+                  <div className="chartTitle">Quality Material Percentage</div>
+                  <ChartContainer type="category" containerId="quality-material" bindTo="#quality-material" analysisName="Quality Material Percentage" socketName="MaterialQualityPercentage"></ChartContainer>
                 </div>
               </div>
             )
         }
 }
+
+//<ChartContainer type="bar" containerId="quality-material" bindTo="#quality-material" analysisName="Quality Material" socketName="QualityMaterial"></ChartContainer>

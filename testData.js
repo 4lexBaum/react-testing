@@ -112,7 +112,7 @@ io.on('connection', function (socket) {
       socket.emit("MaterialDrillingSpeed", qualityData[arrayInd3]);
       socket.emit("MaterialProducedAmount", qualityData[arrayInd3]);
       socket.emit("MaterialDuration", qualityData[arrayInd3]);
-      socket.emit("QualityMaterial", qualityData[arrayInd3]);
+      socket.emit("MaterialQualityPercentage", qualityData[arrayInd3]);
       arrayInd3++;
       if(arrayInd3 == 3) {
         arrayInd3 = 0;
