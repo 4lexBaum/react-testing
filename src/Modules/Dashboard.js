@@ -45,10 +45,7 @@ export class Dashboard extends React.Component {
                       <Tile containerId="drillingTile3" streamType="machine" streamId="LIGHT_BARRIER" borders="" colors="" icon="http://freeflaticons.com/wp-content/uploads/2014/09/placeholder-copy-1411475612k48gn.png" value="0" unit="Barrier" title="Product Location" status="stopped"></Tile>
                     </Col>
                     <Col md={3}>
-                      <Tile containerId="fake1" streamType="analytics" streamId="OverallQuality" borders="" colors="" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/183367-200.png" value="0" unit="%" title="Quality Material" status="n.A."></Tile>
-                    </Col>
-                    <Col md={3}>
-                      <Tile containerId="fake2" streamType="analytics" streamId="OverallQuality" borders="" colors="" icon="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Business%20Businessman.ico" value="0" unit="%" title="Qualtiy Customer" status="n.A."></Tile>
+                      <Tile containerId="fake1" streamType="analytics" streamId="OverallQuality" borders="" colors="" icon="https://d30y9cdsu7xlg0.cloudfront.net/png/183367-200.png" value="0" unit="%" title="Overall Quality" status="n.A."></Tile>
                     </Col>
                     <Col md={3}>
                       <Tile containerId="fake3" streamType="analytics" streamId="OverallOrderAmount" borders="" colors="" icon="http://www.newdesignfile.com/postpic/2015/02/the-legend-of-zelda_233539.png" value="0" unit="QTY" title="Order Amount" status="n.A."></Tile>
@@ -78,4 +75,7 @@ export class Dashboard extends React.Component {
 </Row>
 -->
 
+<Col md={3}>
+  <Tile containerId="fake2" streamType="analytics" streamId="OverallQuality" borders="" colors="" icon="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Business%20Businessman.ico" value="0" unit="%" title="Qualtiy Customer" status="n.A."></Tile>
+</Col>
 */

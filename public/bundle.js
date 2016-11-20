@@ -34,7 +34,7 @@ _reactDom2.default.render(_react2.default.createElement(
 ), document.getElementById('main'));
 
 
-},{"./src/Modules/Customer":510,"./src/Modules/Dashboard":511,"./src/Modules/MachineOverview":512,"./src/Modules/MachineStat":513,"./src/Modules/Material":514,"react":488,"react-dom":280,"react-router":455}],2:[function(require,module,exports){
+},{"./src/Modules/Customer":511,"./src/Modules/Dashboard":512,"./src/Modules/MachineOverview":513,"./src/Modules/MachineStat":514,"./src/Modules/Material":515,"react":488,"react-dom":280,"react-router":455}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":19}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
@@ -61295,6 +61295,54 @@ var _c2 = _interopRequireDefault(_c);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var data;
+//var bindTo = "#"+this.props.bindTo;
+
+module.exports = {
+    createChart: function createChart(analysisName, socketName, bindTo) {
+        var chart = _c2.default.generate({
+            bindto: bindTo,
+            data: {
+                x: 'x',
+                columns: [['x', '4714', '4715', '4716', '4717', '4718', '4719', '4720'], ['correct', 80, 70, 60, 60, 50, 70, 90], ['incorrect', 20, 30, 40, 40, 50, 30, 10]],
+                groups: [['correct', 'incorrect']],
+                type: 'bar'
+            },
+            axis: {
+                x: {
+                    type: 'category'
+                }
+            }
+        });
+        socket.on(socketName, function (msg) {
+            var xAxis = ['x'];
+            var yAxis = ['correct'];
+            var zAxis = ['incorrect'];
+
+            for (var key in msg) {
+                if (msg.hasOwnProperty(key)) {
+                    xAxis.push(key);
+                    yAxis.push(100 - msg[key]);
+                    zAxis.push(msg[key]);
+                }
+            }
+            chart.load({
+                columns: [xAxis, yAxis, zAxis]
+            });
+        });
+    }
+};
+
+
+},{"c3":16}],496:[function(require,module,exports){
+"use strict";
+
+var _c = require('c3');
+
+var _c2 = _interopRequireDefault(_c);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 module.exports = {
     createChart: function createChart() {
         var chart, data;
@@ -61356,7 +61404,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],496:[function(require,module,exports){
+},{"c3":16}],497:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -61402,7 +61450,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],497:[function(require,module,exports){
+},{"c3":16}],498:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -61450,7 +61498,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],498:[function(require,module,exports){
+},{"c3":16}],499:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -61523,7 +61571,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],499:[function(require,module,exports){
+},{"c3":16}],500:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -61554,7 +61602,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],500:[function(require,module,exports){
+},{"c3":16}],501:[function(require,module,exports){
 "use strict";
 
 var _c = require('c3');
@@ -61602,7 +61650,7 @@ module.exports = {
 };
 
 
-},{"c3":16}],501:[function(require,module,exports){
+},{"c3":16}],502:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61626,6 +61674,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var analysisBarChart = require('../Charts/analysisBarChart.js');
 
+var analysisCategoryChart = require('../Charts/analysisCategoryChart.js');
+
 var ChartContainer = exports.ChartContainer = function (_React$Component) {
   _inherits(ChartContainer, _React$Component);
 
@@ -61638,7 +61688,11 @@ var ChartContainer = exports.ChartContainer = function (_React$Component) {
   _createClass(ChartContainer, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      analysisBarChart.createChart(this.props.analysisName, this.props.socketName, this.props.bindTo);
+      if (this.props.type == "bar") {
+        analysisBarChart.createChart(this.props.analysisName, this.props.socketName, this.props.bindTo);
+      } else if (this.props.type == "category") {
+        analysisCategoryChart.createChart(this.props.analysisName, this.props.socketName, this.props.bindTo);
+      }
     }
   }, {
     key: 'render',
@@ -61651,7 +61705,7 @@ var ChartContainer = exports.ChartContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Charts/analysisBarChart.js":494,"react":488}],502:[function(require,module,exports){
+},{"../Charts/analysisBarChart.js":494,"../Charts/analysisCategoryChart.js":495,"react":488}],503:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -61768,7 +61822,7 @@ var ERPData = exports.ERPData = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488}],503:[function(require,module,exports){
+},{"react":488}],504:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61891,7 +61945,7 @@ var Header = exports.Header = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488,"react-bootstrap":269}],504:[function(require,module,exports){
+},{"react":488,"react-bootstrap":269}],505:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -61939,7 +61993,7 @@ var LightBarrier = exports.LightBarrier = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488}],505:[function(require,module,exports){
+},{"react":488}],506:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62056,7 +62110,7 @@ var Machine = exports.Machine = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/LightBarrier.js":504,"react":488}],506:[function(require,module,exports){
+},{"../Components/LightBarrier.js":505,"react":488}],507:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62142,7 +62196,7 @@ var MachineData = exports.MachineData = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Charts/heatChart.js":497,"../Charts/speedChart.js":500,"../Components/ChartContainer.js":501,"react":488}],507:[function(require,module,exports){
+},{"../Charts/heatChart.js":498,"../Charts/speedChart.js":501,"../Components/ChartContainer.js":502,"react":488}],508:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62207,7 +62261,7 @@ var Product = exports.Product = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488}],508:[function(require,module,exports){
+},{"react":488}],509:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62329,7 +62383,7 @@ var SpectralData = exports.SpectralData = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488}],509:[function(require,module,exports){
+},{"react":488}],510:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62446,7 +62500,7 @@ var Tile = exports.Tile = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"react":488}],510:[function(require,module,exports){
+},{"react":488}],511:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62504,7 +62558,7 @@ var Customer = exports.Customer = function (_React$Component) {
             { className: 'chartTitle' },
             'Customer Order Amount'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'customer-order-amount', bindTo: '#customer-order-amount', analysisName: 'Customer Order Amount', socketName: 'CustomerOrderAmount' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'customer-order-amount', bindTo: '#customer-order-amount', analysisName: 'Customer Order Amount', socketName: 'CustomerOrderAmount' })
         ),
         _react2.default.createElement(
           'div',
@@ -62512,9 +62566,9 @@ var Customer = exports.Customer = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'chartTitle' },
-            'Quality Customer'
+            'Quality Customer Percentage'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'quality-customer', bindTo: '#quality-customer', analysisName: 'Quality Customer', socketName: 'QualityCustomer' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'category', containerId: 'quality-customer', bindTo: '#quality-customer', analysisName: 'Quality Customer Percentage', socketName: 'CustomerQualityPercentage' })
         )
       );
     }
@@ -62522,9 +62576,10 @@ var Customer = exports.Customer = function (_React$Component) {
 
   return Customer;
 }(_react2.default.Component);
+//<ChartContainer type="bar" containerId="quality-customer" bindTo="#quality-customer" analysisName="Quality Customer" socketName="QualityCustomer"></ChartContainer>
 
 
-},{"../Components/ChartContainer.js":501,"../Components/Header.js":503,"react":488}],511:[function(require,module,exports){
+},{"../Components/ChartContainer.js":502,"../Components/Header.js":504,"react":488}],512:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62611,12 +62666,7 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'fake1', streamType: 'analytics', streamId: 'OverallQuality', borders: '', colors: '', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/183367-200.png', value: '0', unit: '%', title: 'Quality Material', status: 'n.A.' })
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { md: 3 },
-            _react2.default.createElement(_Tile.Tile, { containerId: 'fake2', streamType: 'analytics', streamId: 'OverallQuality', borders: '', colors: '', icon: 'http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Business%20Businessman.ico', value: '0', unit: '%', title: 'Qualtiy Customer', status: 'n.A.' })
+            _react2.default.createElement(_Tile.Tile, { containerId: 'fake1', streamType: 'analytics', streamId: 'OverallQuality', borders: '', colors: '', icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/183367-200.png', value: '0', unit: '%', title: 'Overall Quality', status: 'n.A.' })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
@@ -62650,10 +62700,13 @@ var Dashboard = exports.Dashboard = function (_React$Component) {
 </Row>
 -->
 
+<Col md={3}>
+  <Tile containerId="fake2" streamType="analytics" streamId="OverallQuality" borders="" colors="" icon="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Business%20Businessman.ico" value="0" unit="%" title="Qualtiy Customer" status="n.A."></Tile>
+</Col>
 */
 
 
-},{"../Components/ChartContainer.js":501,"../Components/Header.js":503,"../Components/Product.js":507,"../Components/Tile.js":509,"react":488,"react-bootstrap":269}],512:[function(require,module,exports){
+},{"../Components/ChartContainer.js":502,"../Components/Header.js":504,"../Components/Product.js":508,"../Components/Tile.js":510,"react":488,"react-bootstrap":269}],513:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62817,7 +62870,7 @@ var MachineOverview = exports.MachineOverview = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/ERPData.js":502,"../Components/Header.js":503,"../Components/Machine.js":505,"../Components/MachineData.js":506,"../Components/SpectralData.js":508,"react":488}],513:[function(require,module,exports){
+},{"../Components/ERPData.js":503,"../Components/Header.js":504,"../Components/Machine.js":506,"../Components/MachineData.js":507,"../Components/SpectralData.js":509,"react":488}],514:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62877,7 +62930,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Milling Heat'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-milling-heat', bindTo: '#material-milling-heat', analysisName: 'Material Milling Heat', socketName: 'MaterialMillingHeat' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-milling-heat', bindTo: '#material-milling-heat', analysisName: 'Material Milling Heat', socketName: 'MaterialMillingHeat' })
         ),
         _react2.default.createElement(
           'div',
@@ -62887,7 +62940,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Milling Speed'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-milling-speed', bindTo: '#material-milling-speed', analysisName: 'Material Milling Speed', socketName: 'MaterialMillingSpeed' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-milling-speed', bindTo: '#material-milling-speed', analysisName: 'Material Milling Speed', socketName: 'MaterialMillingSpeed' })
         ),
         _react2.default.createElement(
           'div',
@@ -62897,7 +62950,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Drilling Heat'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-drilling-heat', bindTo: '#material-drilling-heat', analysisName: 'Material Drilling Heat', socketName: 'MaterialDrillingHeat' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-drilling-heat', bindTo: '#material-drilling-heat', analysisName: 'Material Drilling Heat', socketName: 'MaterialDrillingHeat' })
         ),
         _react2.default.createElement(
           'div',
@@ -62907,7 +62960,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Drilling Speed'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-drilling-speed', bindTo: '#material-drilling-speed', analysisName: 'Material Drilling Speed', socketName: 'MaterialDrillingSpeed' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-drilling-speed', bindTo: '#material-drilling-speed', analysisName: 'Material Drilling Speed', socketName: 'MaterialDrillingSpeed' })
         )
       );
     }
@@ -62917,7 +62970,7 @@ var MachineStat = exports.MachineStat = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Components/ChartContainer.js":501,"../Components/Header.js":503,"../Components/Product.js":507,"react":488}],514:[function(require,module,exports){
+},{"../Components/ChartContainer.js":502,"../Components/Header.js":504,"../Components/Product.js":508,"react":488}],515:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62989,7 +63042,7 @@ var Material = exports.Material = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Produced Amount'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-produced-amount', bindTo: '#material-produced-amount', analysisName: 'Material Produced Amount', socketName: 'MaterialProducedAmount' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-produced-amount', bindTo: '#material-produced-amount', analysisName: 'Material Produced Amount', socketName: 'MaterialProducedAmount' })
         ),
         _react2.default.createElement(
           'div',
@@ -62999,7 +63052,7 @@ var Material = exports.Material = function (_React$Component) {
             { className: 'chartTitle' },
             'Material Duration'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'material-duration', bindTo: '#material-duration', analysisName: 'Material Duration', socketName: 'MaterialDuration' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'material-duration', bindTo: '#material-duration', analysisName: 'Material Duration', socketName: 'MaterialDuration' })
         ),
         _react2.default.createElement(
           'div',
@@ -63009,7 +63062,7 @@ var Material = exports.Material = function (_React$Component) {
             { className: 'chartTitle' },
             'Quality Material'
           ),
-          _react2.default.createElement(_ChartContainer.ChartContainer, { containerId: 'quality-material', bindTo: '#quality-material', analysisName: 'Quality Material', socketName: 'QualityMaterial' })
+          _react2.default.createElement(_ChartContainer.ChartContainer, { type: 'bar', containerId: 'quality-material', bindTo: '#quality-material', analysisName: 'Quality Material', socketName: 'QualityMaterial' })
         )
       );
     }
@@ -63019,4 +63072,4 @@ var Material = exports.Material = function (_React$Component) {
 }(_react2.default.Component);
 
 
-},{"../Charts/barChart.js":495,"../Charts/gaugeChart.js":496,"../Charts/lineChart.js":498,"../Charts/pieChart.js":499,"../Components/ChartContainer.js":501,"../Components/Header.js":503,"../Components/Product.js":507,"react":488,"react-bootstrap":269}]},{},[1]);
+},{"../Charts/barChart.js":496,"../Charts/gaugeChart.js":497,"../Charts/lineChart.js":499,"../Charts/pieChart.js":500,"../Components/ChartContainer.js":502,"../Components/Header.js":504,"../Components/Product.js":508,"react":488,"react-bootstrap":269}]},{},[1]);

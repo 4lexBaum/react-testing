@@ -104,7 +104,8 @@ io.on('connection', function (socket) {
     var arrayInd3 = 0;
     setInterval(function(){
       socket.emit("CustomerOrderAmount", customerData[arrayInd3]);
-      socket.emit("QualityCustomer", qualityData[arrayInd3]);
+    //  socket.emit("QualityCustomer", qualityData[arrayInd3]);
+      socket.emit("CustomerQualityPercentage", qualityData[arrayInd3]);
       socket.emit("MaterialMillingHeat", qualityData[arrayInd3]);
       socket.emit("MaterialMillingSpeed", qualityData[arrayInd3]);
       socket.emit("MaterialDrillingHeat", qualityData[arrayInd3]);
@@ -183,7 +184,6 @@ var qualityData = [
   	4717: 2,
   	4716: 12,
   	4713: 3,
-  	4714: 17,
   	4711: 1,
   	4715: 10,
   	4718: 17
@@ -201,6 +201,7 @@ var qualityData = [
   	4712: 5,
   	4717: 1,
   	4716: 3,
+    4715: 7,
   	4713: 8,
   	4714: 9,
   	4718: 6
